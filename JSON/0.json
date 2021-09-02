@@ -1,0 +1,10 @@
+{
+    "name":"Allen Ben Philipose",
+    "age":20,
+    "address":
+    {
+        "Location":"Chengannur",
+        "State":"Kerala"
+    },
+    "Emotions":["Sad","Depressed"]
+}
