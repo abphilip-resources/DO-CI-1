@@ -4,6 +4,6 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "serve": "nodemon server.js"
+    "serve": "nodemon 1.js"
   }
 }
