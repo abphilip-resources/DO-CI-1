@@ -10,5 +10,6 @@ app.use(express.urlencoded({ extended: false }));
 app.get('/',(req,res)=>{
     // Display host parameter of the HTTP request header
     res.send(req.header('host'));});
+    
 // Message to console if the result appears on port 5000
 app.listen(5000,()=>console.log(`Server started on 5000`));

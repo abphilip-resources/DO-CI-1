@@ -11,4 +11,6 @@ app.delete('/check/:id',(req,res)=>{
         msg:`${req.params.id} deleted`
     });
 });
+
+// Message to console if the result appears on port 5000
 app.listen(5000,()=>console.log(`Server started on 5000`));
