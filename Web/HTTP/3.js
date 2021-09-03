@@ -6,7 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// PUT request to ./post
 app.put('/post/:id',(req,res)=>{
+    // Get the ID from the URL and display with the body
     res.json({
         id: req.params.id,
         title: req.body.title
