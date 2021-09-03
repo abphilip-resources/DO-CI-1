@@ -6,7 +6,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// DELETE request to ./check
 app.delete('/check/:id',(req,res)=>{
+    // Display the ID from the URL has been deleted
     res.json({
         msg:`${req.params.id} deleted`
     });
