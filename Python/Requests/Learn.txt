@@ -1,0 +1,10 @@
+https://www.nylas.com/blog/use-python-requests-module-rest-apis/
+https://www.w3schools.com/python/module_requests.asp
+
+https://www.geeksforgeeks.org/get-post-requests-using-python/
+https://www.geeksforgeeks.org/python-requests-tutorial/
+
+https://realpython.com/api-integration-in-python/
+https://docs.python-requests.org/en/master/
+
+https://www.youtube.com/watch?v=tb8gHvYlCFs
