@@ -1,7 +1,5 @@
 https://www.w3schools.com/python/module_requests.asp
 
-https://www.geeksforgeeks.org/python-requests-tutorial/
-https://www.geeksforgeeks.org/get-post-requests-using-python/
 
 https://www.geeksforgeeks.org/response-json-python-requests/
 https://www.geeksforgeeks.org/response-url-python-requests/
