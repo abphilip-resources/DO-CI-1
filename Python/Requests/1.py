@@ -17,7 +17,7 @@ r.close()
 
 # POST Method
 r = requests.post('https://httpbin.org/post', data={'username':'allenalvin333'})
-print("\nUsername:", r.json()['form'])
+print("\nUsername:", r.json()['form']['username'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
 
@@ -30,5 +30,11 @@ r.close()
 # DELETE Method
 r = requests.delete('https://httpbin.org/delete', data={'username':'allenalvin333'})
 print("\nForm:", r.json()['form'])
+print("HTTP Status Code:",r.status_code)           # 200 if successful
+r.close()
+
+# PATCH Method
+r = requests.patch('https://httpbin.org/patch', data={'name':'Allen Ben'})
+print("\nName:", r.json()['form']['name'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
