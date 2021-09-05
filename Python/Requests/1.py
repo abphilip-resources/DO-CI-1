@@ -17,12 +17,18 @@ r.close()
 
 # POST Method
 r = requests.post('https://httpbin.org/post', data={'username':'allenalvin333'})
-print("\nUsername:", r.json()['form']['username'])
+print("\nUsername:", r.json()['form'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
 
 # PUT Method
 r = requests.put('https://httpbin.org/put', data={'email':'allenbphilip@gmail.com'})
 print("\nEmail:", r.json()['form']['email'])
+print("HTTP Status Code:",r.status_code)           # 200 if successful
+r.close()
+
+# DELETE Method
+r = requests.delete('https://httpbin.org/delete', data={'username':'allenalvin333'})
+print("\nForm:", r.json()['form'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
