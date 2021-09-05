@@ -9,7 +9,10 @@ s.get('https://httpbin.org/cookies/set/sessioncookie/allen')
 r = s.get('https://httpbin.org/cookies')
 print("\n",r.json()['cookies'])
 
+# Authentication via API Key in .env
 api=os.getenv('API_KEY')
 r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Bangalore&appid={}'.format(api))
 print(r.json())
 r.close()
+
+# Parsing a JSON response 
