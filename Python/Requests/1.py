@@ -11,3 +11,4 @@ r = requests.get('https://www.google.com/search?q=hello')
  
 # 200 when we get a response
 print(r.status_code) 
+r.close()
