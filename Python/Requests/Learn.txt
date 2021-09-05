@@ -5,7 +5,6 @@ https://www.geeksforgeeks.org/get-post-requests-using-python/
 
 https://www.geeksforgeeks.org/response-json-python-requests/
 https://www.geeksforgeeks.org/response-url-python-requests/
-https://www.geeksforgeeks.org/authentication-using-python-requests/
 https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/
 
 https://realpython.com/api-integration-in-python/
