@@ -1,5 +1,5 @@
 import requests
-# requests.OPERATION(url, params={key: value}, args)
+# Syntax --> requests.OPERATION(url, params={key: value}, args)
 
 # Print available methods   -->     print(dir(r))
 # Print Guide for methods   -->     print(help(r))
@@ -11,11 +11,18 @@ import requests
 
 # GET Method
 r = requests.get('https://api.github.com/users/allenalvin333')
-print("Followers @Github:", r.json()['followers'])
-print("HTTP Status Code:",r.status_code)           # 200 when we get a response
+print("\nCreated at:", r.json()['created_at'])
+print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
 
 # POST Method
-r = requests.post('https://httpbin.org/post', data ={'key':'value'})
-print("HTTP Status Code:",r.status_code)           # 200 when we get a response
+r = requests.post('https://httpbin.org/post', data={'username':'allenalvin333'})
+print("\nUsername:", r.json()['form']['username'])
+print("HTTP Status Code:",r.status_code)           # 200 if successful
+r.close()
+
+# PUT Method
+r = requests.put('https://httpbin.org/put', data={'email':'allenbphilip@gmail.com'})
+print("\nEmail:", r.json()['form']['email'])
+print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
