@@ -53,3 +53,5 @@ r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
 print(r.json())
 print("HTTP Status Code:",r.status_code)           # 201 if added
 r.close()
+
+# https://realpython.com/api-integration-in-python/
