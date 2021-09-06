@@ -10,19 +10,15 @@ load_dotenv()
 api=os.getenv('API_KEY')
 
 # API JSON on CSV
-weather = []
+weather = {}
 r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Bangalore&appid={}'.format(api))
 for k1, v1 in r.json().items(): 
     if(k1=='main' or k1=='coord' or k1=='sys'):               
-        for k2, v2 in v1.items(): 
-            p="{}: {}".format(k2,v2)
-            weather.append(p)
-    else: 
-        p="{}: {}".format(k1,v1)
-        weather.append(p)
+        for k2, v2 in v1.items(): weather[k2]=v2
+    else: weather[k1]=v1
 
 # Write weather to a CSV file
-with open('weather.csv', 'w', newline='') as f:
+with open('weather.csv', 'w') as f:
     w = csv.writer(f)
     for p in weather: w.writerow(p)             # Write each parameter to the CSV file
     
