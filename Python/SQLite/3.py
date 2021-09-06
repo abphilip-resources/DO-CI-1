@@ -37,8 +37,7 @@ try:
     print("Name | Class | Marks | Section")
     for z in data: print(z[0]," | ",z[1]," | ",z[2]," | ",z[3])
 
-    # Reversal is also possible with 
-    # cursor.rollback()
+    # Reversal is also possible with cursor.rollback()
 
 except: print("Not Working")
 
