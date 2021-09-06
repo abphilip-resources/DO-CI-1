@@ -11,17 +11,18 @@ try:
     print("Name | Class | Marks | Section")
     for z in data: print(z[0]," | ",z[1]," | ",z[2]," | ",z[3])
 
-    # SELECT Command with fetch command
-    cursor.execute('''SELECT * FROM STUDENT ORDER BY NAME''')
+    # SELECT with fetch() method
+    cursor.execute('''SELECT * FROM STUDENT ORDER BY NAME LIMIT 3''')
     print("\nFetch in Python 1:")
     print(cursor.fetchall())
+    # Same output will be created in both the cases
     cursor.execute('''SELECT * FROM STUDENT ORDER BY NAME''')
     print("\nFetch in Python 2:")
     print(cursor.fetchmany(3))
 
     # Updation and Deletion, SELECT to check
     cursor.execute("DELETE FROM STUDENT WHERE MARKS<40")
-    conn.execute("UPDATE STUDENT SET NAME = 'SAM' WHERE SECTION='H'")
+    cursor.execute("UPDATE STUDENT SET NAME = 'Sam' WHERE SECTION='H'")
     print("\nChanged Data:")
     data = cursor.execute('''SELECT * FROM STUDENT ORDER BY SECTION DESC''')
     print("Name | Class | Marks | Section")
