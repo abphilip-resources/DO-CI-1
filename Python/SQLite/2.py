@@ -37,7 +37,7 @@ try:
 
   # SELECT Command with for loop
   data = cursor.execute('''SELECT * FROM STUDENT''')
-  print("Name | Class | Marks | Section")
+  print("\nName | Class | Marks | Section")
   for z in data: print(z[0]," | ",z[1]," | ",z[2]," | ",z[3])
 
 except: print("Not Working")
