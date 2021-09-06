@@ -40,3 +40,16 @@ r = requests.patch('https://httpbin.org/patch', data={'name':'Allen Ben'})
 print("\nName:", r.json()['form']['name'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
+
+
+# GET Method 
+r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+print(r.json())
+print("HTTP Status Code:",r.status_code)           # 200 if successful
+r.close()
+
+# POST Method 
+r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+print(r.json())
+print("HTTP Status Code:",r.status_code)           # 201 if added
+r.close()
