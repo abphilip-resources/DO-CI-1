@@ -13,4 +13,11 @@ for k1, v1 in r.json().items():
     if(k1=='main' or k1=='coord' or k1=='sys'):
         for k2, v2 in v1.items(): print(k2, ":", v2)
     else: print(k1, ":", v1)
+r.close()
 
+# https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/
+# https://realpython.com/api-integration-in-python/
+
+URL = "https://www.geeksforgeeks.org/data-structures/"
+r = requests.get(URL)
+print(r.content)
