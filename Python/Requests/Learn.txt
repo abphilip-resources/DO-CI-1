@@ -1,2 +1,1 @@
 https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/  --> 2
-https://pynative.com/python-post-json-using-requests-library/   --> 3
