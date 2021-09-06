@@ -10,18 +10,21 @@ load_dotenv()
 api=os.getenv('API_KEY')
 
 # API JSON on CSV
-weather = {}
-r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Bangalore&appid={}'.format(api))
-for k1, v1 in r.json().items(): 
-    if(k1=='main' or k1=='coord' or k1=='sys'):               
-        for k2, v2 in v1.items(): weather[k2]=v2
-    else: weather[k1]=v1
+weather,locations=[],['Bengaluru','Hyderabad']
+for z in range(len(locations)):
+    p = {}
+    r = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(locations[z],api))
+    for k1, v1 in r.json().items(): 
+        if(k1=='main' or k1=='coord' or k1=='sys'):               
+            for k2, v2 in v1.items(): p[k2]=v2
+        else: p[k1]=v1
+    weather.append(p)
 
 # Write weather to a CSV file
-with open('weather.csv', 'w') as f:
-    w = csv.writer(f)
-    for p in weather: w.writerow(p)             # Write each parameter to the CSV file
-    
+with open('weather.csv', 'w', newline='') as f:
+    w = csv.DictWriter(f,p.keys())
+    w.writeheader()                               # Write the topics as the header
+    for z in weather: w.writerow(z)               # Write each parameter to the CSV file
 
 # HTML BeautifulSoup on CSV
 r = requests.get("http://www.values.com/inspirational-quotes")
