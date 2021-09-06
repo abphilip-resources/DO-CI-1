@@ -7,13 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 api=os.getenv('API_KEY')
 
-# Create a session object
-s = requests.Session()
-s.get('https://httpbin.org/cookies/set/sessioncookie/allen')
-r = s.get('https://httpbin.org/cookies')
-print("\n",r.json()['cookies'])
-r.close()
-
 # JSON using API
 r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Bangalore&appid={}'.format(api))
 for k1, v1 in r.json().items(): 
