@@ -15,9 +15,5 @@ for k1, v1 in r.json().items():
     else: print(k1, ":", v1)
 r.close()
 
-# https://www.geeksforgeeks.org/implementing-web-scraping-python-beautiful-soup/
 # https://realpython.com/api-integration-in-python/
 
-URL = "https://www.geeksforgeeks.org/data-structures/"
-r = requests.get(URL)
-print(r.content)
