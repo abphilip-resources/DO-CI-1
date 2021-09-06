@@ -14,4 +14,3 @@ for k1, v1 in r.json().items():
         for k2, v2 in v1.items(): print(k2, ":", v2)
     else: print(k1, ":", v1)
 
-# https://realpython.com/api-integration-in-python/
