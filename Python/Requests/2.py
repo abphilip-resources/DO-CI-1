@@ -12,13 +12,13 @@ api=os.getenv('API_KEY')
 # API JSON --> CSV
 weather,locations = [],['Bengaluru','Hyderabad']
 for z in range(len(locations)):
-    p = {}
+    p = {}                                        # Create a dictionary for each location
     r = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(locations[z],api))
     for k1, v1 in r.json().items(): 
         if(k1=='main' or k1=='coord' or k1=='sys'):               
-            for k2, v2 in v1.items(): p[k2]=v2
+            for k2, v2 in v1.items(): p[k2]=v2    # Expand on some fields
         else: p[k1]=v1
-    weather.append(p)
+    weather.append(p)                             # Append each dictionary to the list
 
 # Write weather to CSV
 with open('weather.csv', 'w', newline='') as f:
