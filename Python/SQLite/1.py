@@ -1,4 +1,4 @@
-# https://docs.python.org/3/library/sqlite3.html
+# Official Docs --> https://docs.python.org/3/library/sqlite3.html
 
 import sqlite3                    # SQLite3 is a built-in module
 file = "allen.db"                 # Database name to be created

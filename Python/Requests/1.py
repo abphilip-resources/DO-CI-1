@@ -1,3 +1,5 @@
+# Official Docs --> https://docs.python-requests.org/en/master/
+
 import requests
 # Syntax --> requests.OPERATION(url, params={key: value}, args)
 
