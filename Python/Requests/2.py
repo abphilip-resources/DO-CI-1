@@ -20,11 +20,11 @@ for z in range(len(locations)):
         else: p[k1]=v1
     weather.append(p)
 
-# Write weather to a CSV file
+# Write weather to CSV
 with open('weather.csv', 'w', newline='') as f:
     w = csv.DictWriter(f,p.keys())
     w.writeheader()                               # Write the topics as the header
-    for z in weather: w.writerow(z)               # Write each parameter to the CSV file
+    for z in weather: w.writerow(z)               # Write each location to the CSV file
 
 # HTML BeautifulSoup on CSV
 r = requests.get("http://www.values.com/inspirational-quotes")
@@ -47,7 +47,7 @@ for z in t.findAll('div', attrs =
     quote['author'] = z.img['alt'].split(" #")[1]
     quotes.append(quote)                        # Append each dictionary to the list
 
-# Write quotes to a CSV file
+# Write quotes to CSV
 with open('quotes.csv', 'w', newline='') as f:
     w = csv.DictWriter(f,['theme','url','img','lines','author'])
     w.writeheader()                             # Write the topics as the header
