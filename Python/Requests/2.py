@@ -15,17 +15,17 @@ r = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Bangalore&app
 for k1, v1 in r.json().items(): 
     if(k1=='main' or k1=='coord' or k1=='sys'):               
         for k2, v2 in v1.items(): 
-            p=[k2,v2]
+            p="{}: {}".format(k2,v2)
             weather.append(p)
     else: 
-        p=[k1,v1]
+        p="{}: {}".format(k1,v1)
         weather.append(p)
-r.close()
 
 # Write weather to a CSV file
 with open('weather.csv', 'w', newline='') as f:
     w = csv.writer(f)
     for p in weather: w.writerow(p)             # Write each parameter to the CSV file
+    
 
 # HTML BeautifulSoup on CSV
 r = requests.get("http://www.values.com/inspirational-quotes")
