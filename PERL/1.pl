@@ -21,9 +21,9 @@ of information
 on multiple lines
 END
 
-say $info2
+say $info2;
 
 my $f1 = 1.00096;
 my $f2 = 8.12073;
 
-print("$f1 + $f2 = ",$f1+$f2,"\n");
+printf("%.3f \n",$f1+$f2);
