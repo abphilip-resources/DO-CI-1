@@ -8,7 +8,7 @@
         <ul id='people'></ul>                                  
         <ol id='crowd'></ol>                                    
         <script>                                                // Javascript Here
-            // No. 1                                            --> Single output to Console
+            // No. 1 --> Single output to Console
             var me = {
                 name: "Allen",
                 age: 20,     
@@ -20,7 +20,7 @@
             };
             console.log(me.address.city)                        // Output: Bangalore
 
-            // No. 2                                            --> Multiple outputs to Console
+            // No. 2 --> Multiple outputs to Console
             var output='';
             var people = [
                 {
@@ -44,7 +44,7 @@
             me = JSON.stringify(me);                            // Convert to JSON
             me = JSON.parse(me);                                // Convert to Object
 
-            // No. 3                                            --> AJAX with JSON
+            // No. 3 --> AJAX with JSON
             var x = new XMLHttpRequest();                   
             x.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {  
