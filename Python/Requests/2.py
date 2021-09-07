@@ -10,19 +10,24 @@ load_dotenv()
 api=os.getenv('API_KEY')
 
 # API JSON --> CSV
-weather,locations = [],['Bengaluru','Hyderabad']
+weather,locations = [],['Bengaluru','Hyderabad','Pune','Chennai','Delhi']
 for z in range(len(locations)):
-    p = {}                                        # Create a dictionary for each location
+    city = {}                                     # Create a dictionary for each location
     r = requests.get('http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(locations[z],api))
-    for k1, v1 in r.json().items(): 
-        if(k1=='main' or k1=='coord' or k1=='sys'):               
-            for k2, v2 in v1.items(): p[k2]=v2    # Expand on some fields
-        else: p[k1]=v1
-    weather.append(p)                             # Append each dictionary to the list
+    city['City'] = locations[z]
+    city['Latitude'] = r.json()['coord']['lat']
+    city['Longitude'] = r.json()['coord']['lon']
+    city['Weather'] = r.json()['weather'][0]['description']
+    city['Temp'] = r.json()['main']['temp']
+    city['Pressure'] = r.json()['main']['pressure']
+    city['Humidity'] = r.json()['main']['humidity']
+    city['Wind speed'] = r.json()['wind']['speed']
+    city['HTTP Status Code'] = r.json()['cod']
+    weather.append(city)                          # Append each dictionary to the list
 
 # Write weather to CSV
 with open('weather.csv', 'w', newline='') as f:
-    w = csv.DictWriter(f,p.keys())
+    w = csv.DictWriter(f,city.keys())
     w.writeheader()                               # Write the topics as the header
     for z in weather: w.writerow(z)               # Write each location to the CSV file
 
@@ -40,15 +45,14 @@ t = soup.find('div', attrs = {'id':'all_quotes'})
 for z in t.findAll('div', attrs = 
     {'class':'col-6 col-lg-3 text-center margin-30px-bottom sm-margin-30px-top'}):
     quote = {}                                    # Create a dictionary for each quote
-    quote['theme'] = z.h5.text                    # Quote's theme found at heading 5
-    quote['url'] = z.a['href']
-    quote['img'] = z.img['src']
-    quote['lines'] = z.img['alt'].split(" #")[0]
-    quote['author'] = z.img['alt'].split(" #")[1]
+    quote['Theme'] = z.h5.text                    # Quote's theme found at heading 5
+    quote['URL'] = z.a['href']
+    quote['IMG'] = z.img['src']
+    quote['Quote'] = z.img['alt'].split(" #")[0]
     quotes.append(quote)                          # Append each dictionary to the list
 
 # Write quotes to CSV
 with open('quotes.csv', 'w', newline='') as f:
-    w = csv.DictWriter(f,['theme','url','img','lines','author'])
+    w = csv.DictWriter(f,quote.keys())
     w.writeheader()                               # Write the topics as the header
-    for quote in quotes: w.writerow(quote)        # Write each quote to the CSV file
+    for z in quotes: w.writerow(z)                # Write each quote to the CSV file
