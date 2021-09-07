@@ -36,8 +36,8 @@ quotes=[]
 r = requests.get("http://www.values.com/inspirational-quotes")
 soup = BeautifulSoup(r.content, 'html5lib') 
 r.close()
-# print(r.content)                  --> Raw HTML Content
-# print(soup.prettify())            --> Prettified HTML5 Content
+# print(r.content)                                --> Raw HTML Content
+# print(soup.prettify())                          --> Prettified HTML5 Content
 
 # Deriving quotes from the prettified HTML5 Content
 t = soup.find('div', attrs = {'id':'all_quotes'}) 
