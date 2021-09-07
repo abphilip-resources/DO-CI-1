@@ -46,7 +46,7 @@
             // No. 3
             var x = new XMLHttpRequest();
             x.onreadystatechange = function() {
-                if (x.readyState == 4 && x.status == 200) {
+                if (this.readyState == 4 && this.status == 200) {
                     console.log(x.responseText);
                 }
                 x.open("GET","1.json",true);
