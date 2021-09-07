@@ -5,9 +5,10 @@
         <title>Learning</title>
     </head>
     <body>
-        <ul id='people'></ul>
-        <script>                                            // Javascript Here
-            // No. 1                                        --> Single output to Console
+        <ul id='people'></ul>                                  
+        <ol id='crowd'></ol>                                    
+        <script>                                                // Javascript Here
+            // No. 1                                            --> Single output to Console
             var me = {
                 name: "Allen",
                 age: 20,     
@@ -17,9 +18,9 @@
                 },
                 Schools:["BBHS","DPS"]      
             };
-            console.log(me.address.city)                    // Output: Bangalore
+            console.log(me.address.city)                        // Output: Bangalore
 
-            // No. 2                                        --> Multiple outputs to Console
+            // No. 2                                            --> Multiple outputs to Console
             var output='';
             var people = [
                 {
@@ -36,22 +37,32 @@
                 }
             ];
             for(var z=0; z<people.length; z++){
-                console.log(people[z].age);                 // Output: 20, 50, 90
-                output+='<li>'+people[z].name+'</li>';      // Display on page
+                console.log(people[z].age);                     // Output: 20, 50, 90
+                output+='<li>'+people[z].name+'</li>';          // Display on page
             }
             document.getElementById('people').innerHTML = output;
-            me = JSON.stringify(me);                        // Convert to JSON
-            me = JSON.parse(me);                            // Convert to Object
+            me = JSON.stringify(me);                            // Convert to JSON
+            me = JSON.parse(me);                                // Convert to Object
 
-            // No. 3                                        --> AJAX
+            // No. 3                                            --> AJAX with JSON
             var x = new XMLHttpRequest();                   
             x.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {  
-                    console.log(x.responseText);            
+                    var r = JSON.parse(x.responseText);
+                    var crowd = r.crowd;
+
+                    var output = '';
+                    for(var z=0; z<crowd.length; z++){
+                        console.log(crowd[z].age);              // Output: 20, 50, 90
+                        output+='<li>'+crowd[z].name+'</li>';   // Display on page
+                    }
+                    document.getElementById("crowd").innerHTML = output;         
                 }
             };
-            x.open("GET","1.json",true);                // GET Request to 1.json
-            x.send();
+            x.open("GET","1.json",true);                        // GET Request to 1.json
+            x.send();                                           // Send Request
+            
+            // Data types in JSON --> Boolean, Array, String, Object, Number, NULL
         </script> 
     </body>
 </html>
