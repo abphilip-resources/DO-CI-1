@@ -11,47 +11,44 @@ import requests
 # Print Text of Response    -->     print(r.text)
 # Print URL of Response     -->     print(r.url)
 
-# GET Method
+# Important: Actions and Resources will not be updated on the server 
+
+# GET Method                --> Receive resource from server
+r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
+print(r.json())
+print("HTTP Status Code:",r.status_code,"\n")      # 200 if successful
+r.close()
+
+# POST Method               --> Add new resource to server
+data = {"userId": 1, "title": "Buy milk", "completed": False}
+r = requests.post("https://jsonplaceholder.typicode.com/todos",json=data)
+print(r.json())
+print("HTTP Status Code:",r.status_code,"\n")      # 201 if added
+r.close()
+
+# PUT Method                --> Edit existing resources in server
+data = {'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': True}
+r = requests.put("https://jsonplaceholder.typicode.com/todos/1",json=data)
+print(r.json())
+print("HTTP Status Code:",r.status_code,"\n")      # 201 if added
+r.close()
+
+# PATCH Method              --> Modify value of a specific fields in a resource
+data = {'title': 'Clean Garage', 'completed': True}
+r = requests.patch("https://jsonplaceholder.typicode.com/todos/1",json=data)
+print(r.json())
+print("HTTP Status Code:",r.status_code,"\n")      # 201 if added
+r.close()
+
+# DELETE Method             --> Delete existing resources in server
+r = requests.delete("https://jsonplaceholder.typicode.com/todos/1",json=data)
+print(r.json())
+print("HTTP Status Code:",r.status_code,"\n")      # 201 if added
+r.close()
+
+# Real World Application of Requests
 r = requests.get('https://api.github.com/users/allenalvin333')
-print("\nCreated at:", r.json()['created_at'])
+print("Working at:", r.json()['company'])
+print("Website:", r.json()['blog'])
 print("HTTP Status Code:",r.status_code)           # 200 if successful
 r.close()
-
-# POST Method
-r = requests.post('https://httpbin.org/post', data={'username':'allenalvin333'})
-print("\nUsername:", r.json()['form']['username'])
-print("HTTP Status Code:",r.status_code)           # 200 if successful
-r.close()
-
-# PUT Method
-r = requests.put('https://httpbin.org/put', data={'email':'allenbphilip@gmail.com'})
-print("\nEmail:", r.json()['form']['email'])
-print("HTTP Status Code:",r.status_code)           # 200 if successful
-r.close()
-
-# DELETE Method
-r = requests.delete('https://httpbin.org/delete', data={'username':'allenalvin333'})
-print("\nForm:", r.json()['form'])
-print("HTTP Status Code:",r.status_code)           # 200 if successful
-r.close()
-
-# PATCH Method
-r = requests.patch('https://httpbin.org/patch', data={'name':'Allen Ben'})
-print("\nName:", r.json()['form']['name'])
-print("HTTP Status Code:",r.status_code)           # 200 if successful
-r.close()
-
-
-# GET Method 
-r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
-print(r.json())
-print("HTTP Status Code:",r.status_code)           # 200 if successful
-r.close()
-
-# POST Method 
-r = requests.get("https://jsonplaceholder.typicode.com/todos/1")
-print(r.json())
-print("HTTP Status Code:",r.status_code)           # 201 if added
-r.close()
-
-# https://realpython.com/api-integration-in-python/
