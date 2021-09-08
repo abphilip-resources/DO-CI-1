@@ -3,6 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
+# Loading variables from .env
 from dotenv import load_dotenv
 load_dotenv()
 p1=os.getenv('private_key_id')
