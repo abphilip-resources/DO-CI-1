@@ -12,7 +12,7 @@ p3=os.getenv('client_id')
 u1=os.getenv('client_x509_cert_url')
 u2=os.getenv('databaseURL')
 
-# Creating a credentials object
+# Credentials Certificate for Authorization
 cred = credentials.Certificate({
   "type": "service_account",
   "project_id": "learning-290101",
@@ -26,10 +26,13 @@ cred = credentials.Certificate({
   "client_x509_cert_url": u1
 })
 
-# Initializing the app
+# Initializing the app with credentials and access URL
 firebase_admin.initialize_app(cred, {'databaseURL': u2})
 
-ref = db.reference('py/')
+# CRUD Operations on DB --> Create, Read, Update, Delete
+
+# Create
+ref = db.reference('')
 users_ref = ref.child('users')
 users_ref.set({
     'Allen': {
@@ -42,13 +45,16 @@ users_ref.set({
     },
     'Alvin': {
         'date_of_birth': 'January 16, 2004',
-        'full_name': 'Alvin Ben',
+        'full_name': 'Alvin Ben George',
         'nickname': 'Avin Boo'
     }
 })
 
+# Read
+handle = db.reference('users/Christi')
+print(handle.get())
+
+# Update
 hopper_ref = users_ref.child('Christi')
 hopper_ref.update({'nickname': 'Kishti Mol'})
 
-handle = users_ref.child('py/users/Allen').get()
-print(ref.get())
