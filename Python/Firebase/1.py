@@ -32,9 +32,9 @@ firebase_admin.initialize_app(cred, {'databaseURL': u2})
 # CRUD Operations on DB                     --> Create, Read, Update, Delete
 
 # Create                                    --> .set() command
-r = db.reference('')                        # Set Reference to the root of the DB '/'
-c = r.child('users')                        # Set Reference to '/users' to variable c
-c.set({
+root = db.reference('')                     # Set Reference to the root of the DB '/'
+C = root.child('users')                     # Set Reference to '/users' to variable c
+C.set({
     'Allen': {
         'date_of_birth': 'September 26, 2000',
         'full_name': 'Allen Ben Philipose'
@@ -51,18 +51,18 @@ c.set({
 })
 
 # Read                                      --> .get() command
-r = r.child('users').child('Christi')       # Set Reference to '/users/Christi' to variable r
-print(r.get())
+R = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable r
+print(root.get())
 
 # Update                                    --> .update() command
-u = r.child('users').child('Christi')       # Set Reference to '/users/Christi' to variable u
-u.update({'nick_name': 'Kishti Mol'})       # Add new value with the key 'nick_name'
-u = r.child('users').child('Alvin')         # Set Reference to '/users/Alvin' to variable u
-u.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key 'nick_name'
+U = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable u
+U.update({'nick_name': 'Kishti Mol'})       # Add new value with the key 'nick_name'
+U = root.child('users').child('Alvin')      # Set Reference to '/users/Alvin' to variable u
+U.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key 'nick_name'
 
 # Delete                                    --> .delete() command
-d = r.child('users').child('Allen')         # Set Reference to '/users/Allen' to variable d
-d.delete()
+D = root.child('users').child('Allen')      # Set Reference to '/users/Allen' to variable d
+D.delete()
 
 # https://www.youtube.com/watch?v=s-Ga8c3toVY
 # https://www.youtube.com/watch?v=LaGYxQWYmmc
