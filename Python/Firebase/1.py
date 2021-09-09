@@ -52,7 +52,7 @@ C.set({
 
 # Read                                      --> .get() command
 R = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable r
-print(root.get())
+print(R.get())
 
 # Update                                    --> .update() command
 U = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable u
