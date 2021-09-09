@@ -12,6 +12,7 @@ p3=os.getenv('client_id')
 u1=os.getenv('client_x509_cert_url')
 u2=os.getenv('databaseURL')
 
+# Creating a credentials object
 cred = credentials.Certificate({
   "type": "service_account",
   "project_id": "learning-290101",
@@ -24,6 +25,8 @@ cred = credentials.Certificate({
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": u1
 })
+
+# Initializing the app
 firebase_admin.initialize_app(cred, {'databaseURL': u2})
 
 ref = db.reference('py/')
@@ -36,13 +39,16 @@ users_ref.set({
     'Christi': {
         'date_of_birth': 'January 29, 2001',
         'full_name': 'Christiana John'
+    },
+    'Alvin': {
+        'date_of_birth': 'January 16, 2004',
+        'full_name': 'Alvin Ben',
+        'nickname': 'Avin Boo'
     }
 })
 
 hopper_ref = users_ref.child('Christi')
-hopper_ref.update({
-    'nickname': 'Kishti Mol'
-})
+hopper_ref.update({'nickname': 'Kishti Mol'})
 
-handle = users_ref.child('py/users/alanisawesome').get()
+handle = users_ref.child('py/users/Allen').get()
 print(ref.get())
