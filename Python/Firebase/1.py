@@ -1,12 +1,11 @@
 import os
-import firebase
-import firebase_admin
-from firebase_admin import credentials
+import firebase_admin 
 from firebase_admin import db
+from firebase_admin import credentials
 
 # Loading variables from .env
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv() 
 p1=os.getenv('private_key_id')
 p2=os.getenv('private_key')
 p3=os.getenv('client_id')
@@ -30,12 +29,12 @@ cred = credentials.Certificate({
 # Initializing the app with the certificate and access URL
 firebase_admin.initialize_app(cred, {'databaseURL': u2})
 
-# CRUD Operations on DB         --> Create, Read, Update, Delete
+# CRUD Operations on DB                     --> Create, Read, Update, Delete
 
-# Create                        --> .set()
-r = db.reference('')
-users = r.child('users')
-users.set({
+# Create                                    --> .set() command
+r = db.reference('')                        # Set Reference to the root of the DB '/'
+c = r.child('users')                        # Set Reference to '/users' to variable c
+c.set({
     'Allen': {
         'date_of_birth': 'September 26, 2000',
         'full_name': 'Allen Ben Philipose'
@@ -51,19 +50,19 @@ users.set({
     }
 })
 
-# Read                          --> .get()
-read = r.child('users').child('Christi')
-print(read.get())
+# Read                                      --> .get() command
+r = r.child('users').child('Christi')       # Set Reference to '/users/Christi' to variable r
+print(r.get())
 
-# Update                        --> .update()
-update = r.child('users').child('Christi')
-update.update({'nick_name': 'Kishti Mol'})
-update = r.child('users').child('Alvin')
-update.update({'nick_name': 'Alvin Boo'})
+# Update                                    --> .update() command
+u = r.child('users').child('Christi')       # Set Reference to '/users/Christi' to variable u
+u.update({'nick_name': 'Kishti Mol'})       # Add new value with the key 'nick_name'
+u = r.child('users').child('Alvin')         # Set Reference to '/users/Alvin' to variable u
+u.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key 'nick_name'
 
-# Delete                        --> .delete()
-delete = r.child('users').child('Allen')
-delete.delete()
+# Delete                                    --> .delete() command
+d = r.child('users').child('Allen')         # Set Reference to '/users/Allen' to variable d
+d.delete()
 
 # https://www.youtube.com/watch?v=s-Ga8c3toVY
 # https://www.youtube.com/watch?v=LaGYxQWYmmc
