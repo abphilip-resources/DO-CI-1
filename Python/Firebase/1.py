@@ -12,7 +12,7 @@ p3=os.getenv('client_id')
 u1=os.getenv('client_x509_cert_url')
 u2=os.getenv('databaseURL')
 
-# Credentials Certificate for Authorization
+# Creating credentials certificate for Authorization
 cred = credentials.Certificate({
   "type": "service_account",
   "project_id": "learning-290101",
@@ -26,7 +26,7 @@ cred = credentials.Certificate({
   "client_x509_cert_url": u1
 })
 
-# Initializing the app with credentials and access URL
+# Initializing the app with the certificate and access URL
 firebase_admin.initialize_app(cred, {'databaseURL': u2})
 
 # CRUD Operations on DB --> Create, Read, Update, Delete
@@ -46,7 +46,7 @@ users_ref.set({
     'Alvin': {
         'date_of_birth': 'January 16, 2004',
         'full_name': 'Alvin Ben George',
-        'nickname': 'Avin Boo'
+        'nick_name': 'Avin Boo'
     }
 })
 
@@ -56,5 +56,13 @@ print(handle.get())
 
 # Update
 hopper_ref = users_ref.child('Christi')
-hopper_ref.update({'nickname': 'Kishti Mol'})
+hopper_ref.update({'nick_name': 'Kishti Mol'})
+hopper_ref = users_ref.child('Alvin')
+hopper_ref.update({'nick_   name': 'Alvin Boo'})
 
+# Delete
+#https://www.youtube.com/watch?v=s-Ga8c3toVY
+#https://www.youtube.com/watch?v=rKuGCQda_Qo
+#https://www.youtube.com/watch?v=LaGYxQWYmmc
+
+#https://console.firebase.google.com/u/0/project/learning-290101/database/learning-290101-default-rtdb/data
