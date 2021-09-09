@@ -65,4 +65,3 @@ D = root.child('users').child('Allen')      # Set Reference to '/users/Allen' to
 D.delete()
 
 # https://www.youtube.com/watch?v=s-Ga8c3toVY
-# https://www.youtube.com/watch?v=LaGYxQWYmmc
