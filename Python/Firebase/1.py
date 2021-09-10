@@ -31,10 +31,10 @@ firebase_admin.initialize_app(cred, {'databaseURL': u2})
 
 # CRUD Operations on DB                     --> Create, Read, Update, Delete
 
-# Create                                    --> .set() command
+# Create                                    --> .set() or .push() command
 root = db.reference('')                     # Set Reference to the root of the DB '/'
 C = root.child('users')                     # Set Reference to '/users' to variable c
-C.set({
+C.set({                                     
     'Allen': {
         'date_of_birth': 'September 26, 2000',
         'full_name': 'Allen Ben Philipose'
@@ -48,7 +48,7 @@ C.set({
         'full_name': 'Alvin Ben George',
         'nick_name': 'Avin Boo'
     }
-})
+})                                          
 
 # Read                                      --> .get() command
 R = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable r
@@ -60,6 +60,6 @@ U.update({'nick_name': 'Kishti Mol'})       # Add new value with the key 'nick_n
 U = root.child('users').child('Alvin')      # Set Reference to '/users/Alvin' to variable u
 U.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key 'nick_name'
 
-# Delete                                    --> .delete() command
+# Delete                                    --> .delete() or .remove() command
 D = root.child('users').child('Allen')      # Set Reference to '/users/Allen' to variable d
 D.delete()                                  # Delete the key 'Allen'
