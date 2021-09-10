@@ -52,7 +52,7 @@ C.set({
 
 # Read                                      --> .get() command
 R = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable r
-print(R.get())
+print(R.get())                              # Read the key 'Christi'
 
 # Update                                    --> .update() command
 U = root.child('users').child('Christi')    # Set Reference to '/users/Christi' to variable u
@@ -62,4 +62,4 @@ U.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key '
 
 # Delete                                    --> .delete() command
 D = root.child('users').child('Allen')      # Set Reference to '/users/Allen' to variable d
-D.delete()
+D.delete()                                  # Delete the key 'Allen'
