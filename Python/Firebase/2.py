@@ -2,6 +2,7 @@
 
 import os
 import pyrebase
+import requests
 import firebase_admin 
 from firebase_admin import db
 from firebase_admin import credentials
@@ -48,8 +49,8 @@ def login():
 def signup():
     email = input("Enter your email: ")
     password1 = input("Enter your password: ")
-    #password2 = input("Confirm password: ")
-    if(password1):#==password2):
+    password2 = input("Confirm password: ")
+    if(password1==password2):
         try:
             auth.create_user_with_email_and_password(email, password1)
             print("Valid Login")
@@ -68,7 +69,3 @@ def main():
     main()
 
 if __name__ == "__main__": main()
-
-# https://youtu.be/s-Ga8c3toVY?t=962
-# https://youtu.be/LaGYxQWYmmc
-# https://console.firebase.google.com/u/0/project/learning-290101/authentication/users
