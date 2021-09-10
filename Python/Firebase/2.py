@@ -53,7 +53,7 @@ def signup():
         try:
             auth.create_user_with_email_and_password(email, password1)
             print("Valid Login")
-        except Exception as e: print(e.values())
+        except Exception as e: print(e)
     else: print("Passwords don't match")
 
 def main():
