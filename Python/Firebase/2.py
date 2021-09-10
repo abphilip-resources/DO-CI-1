@@ -42,24 +42,25 @@ def login():
         auth.sign_in_with_email_and_password(email, password)
         print("Valid Login")
     except: print("Invalid Login")
+    exit()
 
 # New user registration
 def signup():
     email = input("Enter your email: ")
     password1 = input("Enter your password: ")
-    password2 = input("Confirm password: ")
-    if(password1==password2):
+    #password2 = input("Confirm password: ")
+    if(password1):#==password2):
         try:
-            auth.create_user_with_email_and_password(email, password)
+            auth.create_user_with_email_and_password(email, password1)
             print("Valid Login")
-        except: print("Email already exists")
+        except Exception as e: print(e.values())
     else: print("Passwords don't match")
 
 def main():
-    print("1. Login")
+    print("\n1. Login")
     print("2. Signup")
     print("3. Exit")
-    choice = int(input("\nEnter your choice: "))
+    choice = int(input("Enter your choice: "))
     if(choice==1): login()
     elif(choice==2): signup()
     elif(choice==3): exit()
