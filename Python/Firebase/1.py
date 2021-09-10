@@ -79,7 +79,7 @@ D.delete()                                          # Delete the key 'Allen'
     ".read": false,
     ".write": false,
     "users": {
-      ".indexOn":["full_name","nick_name","age"]
+      ".indexOn": ["full_name","nick_name","age"]
     }
   }
 }
