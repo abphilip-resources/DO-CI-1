@@ -63,5 +63,3 @@ U.update({'nick_name': 'Alvin Boo'})        # Update existing value of the key '
 # Delete                                    --> .delete() command
 D = root.child('users').child('Allen')      # Set Reference to '/users/Allen' to variable d
 D.delete()
-
-# https://www.youtube.com/watch?v=s-Ga8c3toVY
