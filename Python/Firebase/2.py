@@ -68,3 +68,7 @@ def main():
     main()
 
 if __name__ == "__main__": main()
+
+# https://youtu.be/s-Ga8c3toVY?t=962
+# https://youtu.be/LaGYxQWYmmc
+# https://console.firebase.google.com/u/0/project/learning-290101/authentication/users
