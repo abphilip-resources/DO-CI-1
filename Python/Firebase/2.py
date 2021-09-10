@@ -43,7 +43,6 @@ def login():
         auth.sign_in_with_email_and_password(email, password)
         print("Valid Login")
     except: print("Invalid Login")
-    exit()
 
 # New user registration
 def signup():
@@ -53,8 +52,7 @@ def signup():
     if(password1==password2):
         try:
             auth.create_user_with_email_and_password(email, password1)
-            print("Valid, Signup complete")
-            exit()
+            print("Signup complete")
         except Exception as e: print(e)
     else: print("Passwords don't match")
 
