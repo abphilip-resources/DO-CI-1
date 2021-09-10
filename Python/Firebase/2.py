@@ -53,7 +53,8 @@ def signup():
     if(password1==password2):
         try:
             auth.create_user_with_email_and_password(email, password1)
-            print("Valid Login")
+            print("Valid, Signup complete")
+            exit()
         except Exception as e: print(e)
     else: print("Passwords don't match")
 
@@ -61,10 +62,10 @@ def main():
     print("\n1. Login")
     print("2. Signup")
     print("3. Exit")
-    choice = int(input("Enter your choice: "))
-    if(choice==1): login()
-    elif(choice==2): signup()
-    elif(choice==3): exit()
+    choice = input("Enter your choice: ")
+    if(choice=='1'): login()
+    elif(choice=='2'): signup()
+    elif(choice=='3'): exit()
     else: print("Invalid choice")
     main()
 
