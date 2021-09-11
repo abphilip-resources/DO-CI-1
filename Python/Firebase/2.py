@@ -7,15 +7,15 @@ import firebase_admin
 from firebase_admin import db
 from firebase_admin import credentials
 
-# Loading variables from .env
+# Load variables from .env
 from dotenv import load_dotenv
 load_dotenv() 
 a1=os.getenv('apikey')
 a2=os.getenv('appid')
 u1=os.getenv('databaseURL')
 
-# Creating credentials certificate for Authorization
-cred = firebaseConfig = {
+# Configure app and database
+cred = {
   'apiKey': a1,
   'authDomain': "learning-290101.firebaseapp.com",
   'databaseURL': u1,
@@ -26,8 +26,7 @@ cred = firebaseConfig = {
   'measurementId': "G-LVMDKBV43W"
 };
 
-
-# Initializing the app with the certificate 
+# Initialize the app with the credentials 
 firebase = pyrebase.initialize_app(cred)
 auth = firebase.auth()
 
@@ -35,14 +34,15 @@ auth = firebase.auth()
 storage = firebase.storage()
 db = firebase.database()
 
-# Authenticating the user
+# Authenticate the user
 def login():
     email = input("Enter your email: ")
     password = input("Enter your password: ")
     try:
-        auth.sign_in_with_email_and_password(email, password)
+        a = auth.sign_in_with_email_and_password(email, password)
         print("Valid Login")
     except: print("Invalid Login")
+    print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
 
 # New user registration
 def signup():
@@ -51,8 +51,9 @@ def signup():
     password2 = input("Confirm password: ")
     if(password1==password2):
         try:
-            auth.create_user_with_email_and_password(email, password1)
+            a = auth.create_user_with_email_and_password(email, password1)
             print("Signup complete")
+            print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
         except Exception as e: print(e)
     else: print("Passwords don't match")
 
