@@ -33,11 +33,10 @@ def login():                                        # Authenticate existing user
     email = input("Enter your email: ")
     password = input("Enter your password: ")
     try:
-        # User input verified from Firebase
         a = auth.sign_in_with_email_and_password(email, password)
-        print("Valid Login")
+        print("Valid Login")                        # User input verified from Firebase
+        print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
     except: print("Invalid Login")
-    print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
 
 def signup():                                       # Register new user 
     email = input("Enter your email: ")
@@ -45,11 +44,10 @@ def signup():                                       # Register new user
     password2 = input("Confirm password: ")
     if(password1==password2):                       # Check if passwords match
         try:
-            # User input added to Firebase
             a = auth.create_user_with_email_and_password(email, password1)
-            print("Signup complete")
+            print("Signup complete")                # User input added to Firebase
             print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
-        except Exception as e: print(e)             # Error handling
+        except Exception as e: print(e)             
     else: print("Passwords don't match")
 
 def main():                                         # Menu driven approach
