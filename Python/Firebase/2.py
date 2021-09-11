@@ -35,7 +35,8 @@ def login():                                        # Authenticate existing user
     try:
         a = auth.sign_in_with_email_and_password(email, password)
         print("Valid Login")                        # User input verified from Firebase
-        print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
+        g = auth.get_account_info(a['idToken'])
+        print("ID:",g['users'][0]['localId'])
     except: print("Invalid Login")
 
 def signup():                                       # Register new user 
@@ -46,7 +47,8 @@ def signup():                                       # Register new user
         try:
             a = auth.create_user_with_email_and_password(email, password1)
             print("Signup complete")                # User input added to Firebase
-            print("ID:",auth.get_account_info(a['idToken'])['users'][0]['localId'])
+            g = auth.get_account_info(a['idToken'])
+            print("ID:",g['users'][0]['localId'])
         except Exception as e: print(e)             
     else: print("Passwords don't match")
 
