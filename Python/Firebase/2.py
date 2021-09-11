@@ -61,6 +61,6 @@ def main():                                         # Menu driven approach
     elif(choice=='2'): signup()
     elif(choice=='3'): exit()
     else: print("Invalid choice")
-    main()                                          # Recursive loop
+    main()                                          # Recursive call
 
 if __name__ == "__main__": main()
