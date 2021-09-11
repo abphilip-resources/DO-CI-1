@@ -32,6 +32,8 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 db.collection('persons').add({'name': 'Allen', 'age': 20})
 
+# CRUD                                              --> Create, Read, Update, Delete
+
 '''                                                 --> Cloud Firestore rules in Firebase
 rules_version = '2';
 service cloud.firestore {
