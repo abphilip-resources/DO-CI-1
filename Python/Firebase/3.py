@@ -30,11 +30,22 @@ cred = credentials.Certificate({
 # Initializing the app with the certificate and access URL
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-db.collection('persons').add({'name': 'Allen', 'age': 20})
 
-# CRUD                                              --> Create, Read, Update, Delete
+# CRUD Operations on DB                               --> Create, Read, Update, Delete
 
-'''                                                 --> Cloud Firestore rules in Firebase
+# Create                                              --> .add() or .set() command
+C = {'name': 'Allen', 'age': 20}
+db.collection('1').add(C)                             # Data added to a randomly generated ID in Collection 1
+db.collection('2').document().set(C)                  # Data added to a randomly generated ID in Colection 2
+db.collection('2').document('ID').set(C)              # Data added to a user defined ID in Collection 2
+C = {'Address': 'Bangalore'}
+db.collection('2').document('ID').set(C, merge=True)  # Data added to an existing document in Collection 2
+
+# Read                                                --> .get() command
+R = db.collection('2').document('ID').get()
+print(R.to_dict())
+
+'''                                                   --> Cloud Firestore rules in Firebase
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
