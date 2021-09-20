@@ -37,13 +37,39 @@ db = firestore.client()
 C = {'name': 'Allen', 'age': 20}
 db.collection('1').add(C)                             # Data added to a randomly generated ID in Collection 1
 db.collection('2').document().set(C)                  # Data added to a randomly generated ID in Colection 2
-db.collection('2').document('ID').set(C)              # Data added to a user defined ID in Collection 2
-C = {'Address': 'Bangalore'}
-db.collection('2').document('ID').set(C, merge=True)  # Data added to an existing document in Collection 2
+db.collection('2').document('ID1').set(C)             # Data added to a user defined ID1 in Collection 2
+db.collection('2').document('ID2').set(C)             # Data added to a user defined ID2 in Collection 2
+C = {'age': 21, 'Address': ['Bangalore','Pune']}
+db.collection('2').document('ID1').set(C, merge=True) # Data added to an existing document in Collection 2
 
 # Read                                                --> .get() command
 R = db.collection('2').document('ID').get()
-print(R.to_dict())
+if(R.exists): print(R.to_dict(),"\n")                 # Error Handling with .exists command
+R = db.collection('2').get()
+for r in R: print(r.to_dict())                        # Iterating through all documents in Collection 2
+R = db.collection('2').where('age','==',21).get()     # Querying in Firestore with .where() command
+for r in R: print("\nAge - 21: ",r.to_dict())                        
+R = db.collection('2').where('Address','array_contains','Pune').get()
+for r in R: print("\nLocation - Pune: ",r.to_dict())  # ('in', '['item1','item2']') for multiple queries
+
+# Update                                              --> .update() command
+U = {'age':22, 'Address': ['Bangalore','Kerala']}     # Data to be updated
+db.collection('2').document('ID2').update(U)          # If data doesn't exist, it will be created
+U = {'age':firestore.Increment(1)}                    # Incrementing age by 1
+db.collection('2').document('ID2').update(U)  
+U = {'Address': firestore.ArrayRemove('Kerala')}      # Removing Kerala from Address
+db.collection('2').document('ID2').update(U)  
+U = {'Address': firestore.ArrayUnion('Karnataka')}    # Adding Karnataka to Address
+db.collection('2').document('ID2').update(U)      
+
+# Delete                                              --> .delete() command
+db.collection('2').document('ID2').update({'age':firestore.DELETE_FIELD})
+db.collection('2').document('ID1').delete()           # Deleting documents with known ID
+D = db.collection('1').get()                          # Deleting documents with unknown IDs
+for d in D: db.collection('1').document(d.id).delete() 
+D = db.collection('2').where('age','==',20).get()     # Deleting documents on condition
+for d in D: db.collection('2').document(d.id).delete() 
+db.collection('2').document('ID2').delete()           # Deleting documents with known ID
 
 '''                                                   --> Cloud Firestore rules in Firebase
 rules_version = '2';
