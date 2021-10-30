@@ -10,21 +10,21 @@ jobs:
     name: Linux
     runs-on: ubuntu-latest
     steps:
-      - name: two
+      - name: Job 
         run: date
 
   B:
     name: Windows
     runs-on: windows-latest
     steps:
-      - name: two
+      - name: Job
         run: date
 
   C:
     name: Mac
     runs-on: macos-latest
     steps:
-      - name: two
+      - name: Job
         run: date
 
   D:
@@ -32,5 +32,5 @@ jobs:
     runs-on: macos-latest
     needs: [A, B, C]
     steps:
-      - name: two
+      - name: Job
         run: date
