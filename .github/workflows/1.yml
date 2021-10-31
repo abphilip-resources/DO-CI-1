@@ -3,10 +3,10 @@ name: Learn 1
 on: 
   push:
     branches:
-      - mast?r
+      - master
   pull_request:
     branches:
-      - ma?ter
+      - master
 
 jobs:
   job1:
