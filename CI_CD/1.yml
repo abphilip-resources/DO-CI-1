@@ -1,27 +1,27 @@
-name: Learn 1                    
+name: Learn 1                                           # Name of the workflow          
 
-on: 
-  push:
+on:                                                     # Triggers to run the workflow
+  push:                                                 # Trigger 1 is pushing to a branch
     branches:
-      - master
-  pull_request:
+      - master                                          # To specified branch
+  pull_request:                                         # Trigger 2 is pulling a request
     branches:
-      - master
+      - master                                          # From specified branch
 
-jobs:
+jobs:                                                   # Jobs to run in the workflow
   job1:
-    name: Linux
-    runs-on: ubuntu-latest
-    steps:
-      - name: one
-        uses: actions/checkout@v2
-      - name: two
-        run: env | sort
+    name: Linux                                         # Name of the job
+    runs-on: ubuntu-latest                              # Specified OS
+    steps:                                              # Steps to run in the job
+      - name: one                                       # Name of the step
+        uses: actions/checkout@v2                       # Specified action
+      - name: two                           
+        run: "env | sort"                               # Specified command
   job2:
-    name: Windows
-    runs-on: windows-latest
-    steps:
-      - name: one
-        uses: actions/checkout@v2
+    name: Windows                                       # Name of the job
+    runs-on: windows-latest                             # Specified OS
+    steps:                                              # Steps to run in the job
+      - name: one                                       # Name of the step
+        uses: actions/checkout@v2                       # Specified action
       - name: two
-        run: "Get-ChildItem Env: | Sort-Object Name"
+        run: "Get-ChildItem Env: | Sort-Object Name"    # Specified command
