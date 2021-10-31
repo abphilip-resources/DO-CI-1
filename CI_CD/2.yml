@@ -1,33 +1,33 @@
-name: Learn 2
+name: Learn 2                                           # Name of the workflow     
 
-on: push
+on: push                                                # Trigger event
 
-jobs:
-  A:
-    name: Linux
-    runs-on: ubuntu-latest
+jobs:                                                   # Jobs
+  A:                                                    
+    name: Linux                                         # Name of the job
+    runs-on: ubuntu-latest                              # Specified OS
     steps:
-      - name: Job 
-        run: date
+      - name: Job                                       # Name of the step
+        run: date                                       # Command to run
 
   B:
-    name: Windows
-    runs-on: windows-latest
+    name: Windows                                       # Name of the job
+    runs-on: windows-latest                             # Specified OS
     steps:
-      - name: Job
-        run: date
+      - name: Job                                       # Name of the step
+        run: date                                       # Command to run
 
   C:
-    name: Mac
-    runs-on: macos-latest
+    name: MacOS                                         # Name of the job
+    runs-on: macos-latest                               # Specified OS
     steps:
-      - name: Job
-        run: date
+      - name: Job                                       # Name of the step
+        run: date                                       # Command to run
 
   D:
-    name: Final
-    runs-on: macos-latest
-    needs: [A, B, C]
+    name: Final                                         # Name of the job
+    runs-on: ubuntu-latest                              # Specified OS
+    needs: [A, B, C]                                    # Dependencies
     steps:
-      - name: Job
-        run: date
+      - name: Job                                       # Name of the step
+        run: date                                       # Command to run
