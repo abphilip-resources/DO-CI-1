@@ -1,6 +1,8 @@
 name: Learn 3
 
 on: push
+env: 
+  WORKSPACE_ENVIRONMENT_VARIABLE: "Allen's Workspace Environment Variable"
 
 jobs:
   A:
@@ -49,18 +51,24 @@ jobs:
     name: Environment Variable Check
     runs-on: ubuntu-latest
     env:
-      JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for ubuntu'
+      JOB_ENVIRONMENT_VARIABLE: "Allen's Job Environment Variable"
+
     steps:
-    - name: Print custom environment variables from ubuntu-latest
+    - name: Print
       env:
-        STEP_ENVIRONMENT_VARIABLE: 'custom step environment variable for bash'
+        STEP_ENVIRONMENT_VARIABLE: "Allen's Step Environment Variable"
+
       run: |
-        echo "Accessing environment variables during run"
-        echo "$WORKSPACE_ENVIRONMENT_VARIABLE"
-        echo "$JOB_ENVIRONMENT_VARIABLE"
-        echo "$STEP_ENVIRONMENT_VARIABLE"
-        echo "------------------------------------------------------"
-        echo "Accessing environment variables using env context"
-        echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
-        echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
-        echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
+        echo "+------------------------------------------------------+"
+        echo "| Accessing during runtime"
+        echo "+------------------------------------------------------+"
+        echo "| $WORKSPACE_ENVIRONMENT_VARIABLE"
+        echo "| $JOB_ENVIRONMENT_VARIABLE"
+        echo "| $STEP_ENVIRONMENT_VARIABLE"
+        echo "+------------------------------------------------------+"
+        echo "| Accessing using env context"
+        echo "+------------------------------------------------------+"
+        echo "| ${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
+        echo "| ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "| ${{ env.STEP_ENVIRONMENT_VARIABLE }}"
+        echo "+------------------------------------------------------+"
