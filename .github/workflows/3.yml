@@ -1,0 +1,10 @@
+name: Learn 3
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Job
+      uses: actions/checkout@v2
