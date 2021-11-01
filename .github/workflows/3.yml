@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Python Syntax Checker
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
-    - name: Check out tomcat-users.xml
+    - name: Check out sample2.xml
       uses: actions/checkout@v2
 
     - name: List project files and java version
@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: apache/tomcat # Repository name with owner
-        ref: master               # The branch, tag or SHA to checkout
+        ref: main               # The branch, tag or SHA to checkout
         path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
 
     - name: Setup Java 9
@@ -37,7 +37,7 @@ jobs:
           java -version
 
     - name: Copy tomcat-users.xml into Tomcat configuration directory
-      run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
+      run: cp -v CI_CD/sample2.xml ./tomcat/conf/sample2.xml
 
     - name: Compile Tomcat
       run: |
