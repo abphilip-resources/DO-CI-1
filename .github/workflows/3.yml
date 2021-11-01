@@ -4,14 +4,14 @@ on: push
 
 jobs:
   A:
-    name: Python
+    name: Python Syntax Check
     runs-on: ubuntu-latest
     steps:
     - name: Python Syntax Checker
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
   B:
-    name: Apache 
+    name: Apache Repository Check
     runs-on: ubuntu-latest
     steps:
     - name: My Repo
@@ -29,7 +29,7 @@ jobs:
         path: ./tomcat       
 
   C:
-    name: Java
+    name: Java Version Update
     runs-on: ubuntu-latest
     steps:
     - name: Before
@@ -44,3 +44,23 @@ jobs:
 
     - name: After
       run: java -version
+
+  D:
+    name: Environment Variable Check
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for ubuntu'
+    steps:
+    - name: Print custom environment variables from ubuntu-latest
+      env:
+        STEP_ENVIRONMENT_VARIABLE: 'custom step environment variable for bash'
+      run: |
+        echo "Accessing environment variables during run"
+        echo "$WORKSPACE_ENVIRONMENT_VARIABLE"
+        echo "$JOB_ENVIRONMENT_VARIABLE"
+        echo "$STEP_ENVIRONMENT_VARIABLE"
+        echo "------------------------------------------------------"
+        echo "Accessing environment variables using env context"
+        echo "${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
+        echo "${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "${{ env.STEP_ENVIRONMENT_VARIABLE }} Not defined"
