@@ -1,0 +1,27 @@
+name: Learn 1                    
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  job1:
+    name: Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: one
+        uses: actions/checkout@v2
+      - name: two
+        run: "env | sort"
+  job2:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+      - name: one
+        uses: actions/checkout@v2
+      - name: two
+        run: "Get-ChildItem Env: | Sort-Object Name"

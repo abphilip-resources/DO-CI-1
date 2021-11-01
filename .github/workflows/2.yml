@@ -1,0 +1,33 @@
+name: Learn 2
+
+on: push
+
+jobs:
+  A:
+    name: Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job 
+        run: date
+
+  B:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+      - name: Job
+        run: date
+
+  C:
+    name: MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Job
+        run: date
+
+  D:
+    name: Final
+    runs-on: ubuntu-latest
+    needs: [A, B, C]
+    steps:
+      - name: Job
+        run: date
