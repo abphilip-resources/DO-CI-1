@@ -11,11 +11,15 @@ jobs:
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
   B:
-    name: Apache Tomcat
+    name: Apache 
     runs-on: ubuntu-latest
     steps:
     - name: My Repo
       uses: actions/checkout@v2
+      with:
+        repository: allenalvin333/GFG_Learning 
+        ref: master               
+        path: ./CI_CD
 
     - name: Source Repo
       uses: actions/checkout@v2
@@ -28,9 +32,9 @@ jobs:
     name: Java
     runs-on: ubuntu-latest
     steps:
-    - name: Before Update
+    - name: Before
       run: java -version
-      
+
     - name: Update
       uses: actions/setup-java@v1
       with:
@@ -38,5 +42,5 @@ jobs:
         java-package: jdk       
         architecture: x64        
 
-    - name: After Update
+    - name: After
       run: java -version
