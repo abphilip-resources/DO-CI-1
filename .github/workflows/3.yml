@@ -3,43 +3,40 @@ name: Learn 3
 on: push
 
 jobs:
-  build:
+  A:
     name: Python
     runs-on: ubuntu-latest
     steps:
     - name: Python Syntax Checker
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
-    - name: Check out sample2.xml
+
+  B:
+    name: Apache Tomcat
+    runs-on: ubuntu-latest
+    steps:
+    - name: My Repo
       uses: actions/checkout@v2
 
-    - name: List project files and java version
-      run: |
-          ls -ltr
-          java -version
-
-    - name: Check out Apache Tomcat
+    - name: Source Repo
       uses: actions/checkout@v2
       with:
-        repository: apache/tomcat # Repository name with owner
-        ref: main               # The branch, tag or SHA to checkout
-        path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
+        repository: apache/tomcat 
+        ref: main               
+        path: ./tomcat       
 
-    - name: Setup Java 9
+  C:
+    name: Java
+    runs-on: ubuntu-latest
+    steps:
+    - name: Before Update
+      run: java -version
+      
+    - name: Update
       uses: actions/setup-java@v1
       with:
-        java-version: '9.0.4'     # The JDK version to make available on the path
-        java-package: jdk         # (jre, jdk, or jdk+fx) - defaults to jdk
-        architecture: x64         # (x64 or x86) - defaults to x64
+        java-version: '9.0.4'  
+        java-package: jdk       
+        architecture: x64        
 
-    - name: List project files and java version
-      run: |
-          ls -ltr
-          java -version
-
-    - name: Copy tomcat-users.xml into Tomcat configuration directory
-      run: cp -v tomcat-users.xml ./tomcat/conf/tomcat-users.xml
-
-    - name: Compile Tomcat
-      run: |
-        cd ./tomcat
-        ant
+    - name: After Update
+      run: java -version
