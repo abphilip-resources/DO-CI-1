@@ -9,7 +9,7 @@ jobs:
     name: Python Syntax 
     runs-on: ubuntu-latest
     steps:
-    - name: Checker
+    - name: Check
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
   B:

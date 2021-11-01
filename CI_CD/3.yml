@@ -1,0 +1,75 @@
+name: Learn 3                                                   # Name of the workflow 
+
+on: push                                                        # Trigger event
+env:                                                            # Environment variable - 1
+  WORKSPACE_ENVIRONMENT_VARIABLE: "Allen's Workspace Environment Variable"
+
+jobs:                                                           # Jobs
+  A:
+    name: Python Syntax                                         # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS
+    steps:
+    - name: Check                                               # Name of the step
+      uses: cclauss/Find-Python-syntax-errors-action@v0.2.0     # Step taken from github marketplace
+
+  B:
+    name: Apache Tomcat                                         # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS                               
+    steps:
+    - name: My Repository                                       # Name of the step
+      uses: actions/checkout@v2                                 # Specified action
+      with:
+        repository: allenalvin333/GFG_Learning                  # Repository
+        ref: master                                             # Branch           
+        path: ./CI_CD                                           # Path
+
+    - name: Source Repository                                   # Name of the step
+      uses: actions/checkout@v2                                 # Specified action
+      with:
+        repository: apache/tomcat                               # Repository
+        ref: main                                               # Branch
+        path: ./tomcat                                          # Path
+
+  C:
+    name: Java Version                                          # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS
+    steps:
+    - name: Before                                              # Name of the step
+      run: java -version                                        # Command to run
+
+    - name: Update                                              # Name of the step
+      uses: actions/setup-java@v1                               # Specified action
+      with:                                                     # Specified arguments
+        java-version: '9.0.4'                                   # Java version
+        java-package: jdk                                       # Java package (JRE, JDK, or JDK+FX)
+        architecture: x64                                       # Core (x64 or x86)
+
+    - name: After                                               # Name of the step
+      run: java -version                                        # Command to run
+
+  D:
+    name: Environment Variables                                 # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS
+    env:                                                        # Environment variable - 2
+      JOB_ENVIRONMENT_VARIABLE: "Allen's Job Environment Variable"
+
+    steps:
+    - name: Print                                               # Name of the step
+      env:                                                      # Environment variable - 3
+        STEP_ENVIRONMENT_VARIABLE: "Allen's Step Environment Variable"
+
+      run: |                                                    # Command to run
+        echo ""
+        echo "+------------------------------------------------------+"
+        echo "| Accessing during runtime"
+        echo "+------------------------------------------------------+"
+        echo "| " $WORKSPACE_ENVIRONMENT_VARIABLE
+        echo "| " $JOB_ENVIRONMENT_VARIABLE
+        echo "| " $STEP_ENVIRONMENT_VARIABLE
+        echo "+------------------------------------------------------+"
+        echo "| Accessing using env context"
+        echo "+------------------------------------------------------+"
+        echo "|  ${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
+        echo "|  ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "|  ${{ env.STEP_ENVIRONMENT_VARIABLE }}"
+        echo "+------------------------------------------------------+"
