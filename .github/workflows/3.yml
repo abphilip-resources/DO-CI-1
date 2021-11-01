@@ -13,7 +13,7 @@ jobs:
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
   B:
-    name: Apache TomCat 
+    name: Apache Tomcat 
     runs-on: ubuntu-latest
     steps:
     - name: My Repository
@@ -69,7 +69,7 @@ jobs:
         echo "+------------------------------------------------------+"
         echo "| Accessing using env context"
         echo "+------------------------------------------------------+"
-        echo "| ${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
-        echo "| ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
-        echo "| ${{ env.STEP_ENVIRONMENT_VARIABLE }}"
+        echo "|  ${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}"
+        echo "|  ${{ env.JOB_ENVIRONMENT_VARIABLE }}"
+        echo "|  ${{ env.STEP_ENVIRONMENT_VARIABLE }}"
         echo "+------------------------------------------------------+"
