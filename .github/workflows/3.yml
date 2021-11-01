@@ -6,24 +6,24 @@ env:
 
 jobs:
   A:
-    name: Python Syntax Check
+    name: Python Syntax 
     runs-on: ubuntu-latest
     steps:
-    - name: Python Syntax Checker
+    - name: Checker
       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
 
   B:
-    name: Apache Repository Check
+    name: Apache TomCat 
     runs-on: ubuntu-latest
     steps:
-    - name: My Repo
+    - name: My Repository
       uses: actions/checkout@v2
       with:
         repository: allenalvin333/GFG_Learning 
         ref: master               
         path: ./CI_CD
 
-    - name: Source Repo
+    - name: Source Repository
       uses: actions/checkout@v2
       with:
         repository: apache/tomcat 
@@ -31,7 +31,7 @@ jobs:
         path: ./tomcat       
 
   C:
-    name: Java Version Update
+    name: Java Version 
     runs-on: ubuntu-latest
     steps:
     - name: Before
@@ -48,7 +48,7 @@ jobs:
       run: java -version
 
   D:
-    name: Environment Variable Check
+    name: Environment Variables
     runs-on: ubuntu-latest
     env:
       JOB_ENVIRONMENT_VARIABLE: "Allen's Job Environment Variable"
@@ -59,12 +59,13 @@ jobs:
         STEP_ENVIRONMENT_VARIABLE: "Allen's Step Environment Variable"
 
       run: |
+        echo ""
         echo "+------------------------------------------------------+"
         echo "| Accessing during runtime"
         echo "+------------------------------------------------------+"
-        echo "| $WORKSPACE_ENVIRONMENT_VARIABLE"
-        echo "| $JOB_ENVIRONMENT_VARIABLE"
-        echo "| $STEP_ENVIRONMENT_VARIABLE"
+        echo "| " $WORKSPACE_ENVIRONMENT_VARIABLE
+        echo "| " $JOB_ENVIRONMENT_VARIABLE
+        echo "| " $STEP_ENVIRONMENT_VARIABLE
         echo "+------------------------------------------------------+"
         echo "| Accessing using env context"
         echo "+------------------------------------------------------+"
