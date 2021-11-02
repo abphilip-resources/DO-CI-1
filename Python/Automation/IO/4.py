@@ -1,11 +1,11 @@
-import os                                             
+import os                                                                   
 from pathlib import Path                                
 
-S = {
-    "DOCUMENTS": ['.pdf','.rtf','.txt'],
-    "AUDIO":['.m4a','.m4b','.mp3'],
-    "VIDEOS": ['.mov','.avi','.mp4'],
-    "IMAGES": ['.jpg','.jpeg','.png']
+S = {                                                   # Dictionary of filetypes and their suffixes
+    "documents": ['.pdf','.rtf','.txt'],
+    "audio":['.m4a','.m4b','.mp3'],
+    "videos": ['.mov','.avi','.mp4'],
+    "images": ['.jpg','.jpeg','.png']
 }
 def pickDirectory(value):
     for category, suffixes in S.items():
