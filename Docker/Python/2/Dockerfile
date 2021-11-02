@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3
 
 LABEL maintainer="Allen Ben Philipose <allenbphilip@gmail.com>"
-LABEL description="To Learn new technologies"
+LABEL description="Learn1"
 
 WORKDIR /data
 
