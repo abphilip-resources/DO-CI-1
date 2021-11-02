@@ -1,8 +1,8 @@
-F = open("File.txt",'r')
-passFile = open("Pass.txt",'w')
-failFile = open("Fail.txt",'w')
+F = open("File.txt",'r')                                # Open file in read mode
+passFile = open("Pass.txt",'w')                         # Create file in write mode
+failFile = open("Fail.txt",'w')                         # Create file in write mode
 for line in F:
-    if(line.split()[2]=="P"): passFile.write(line)
-    else: failFile.write(line)
-passFile.close()
-failFile.close()
+    if(line.split()[2]=="P"): passFile.write(line)      # Write the line to passFile
+    else: failFile.write(line)                          # Write the line to failFile    
+passFile.close()                                        # Close the file
+failFile.close()                                        # Close the file
