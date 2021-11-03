@@ -24,13 +24,13 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         name: linux
-        path: ./${{ env.FILE_NAME }}
+        path: ./hello
 
     - name: Upload artifact for windows
       uses: actions/upload-artifact@v1.0.0
       with:
         name: windows
-        path: ./${{ env.FILE_NAME }}.exe
+        path: ./hello.exe
 
   test-linux:
     name: Test Linux
