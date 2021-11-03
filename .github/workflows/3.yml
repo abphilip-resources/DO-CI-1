@@ -56,7 +56,7 @@ jobs:
     steps:
     - name: Print
       env:
-        STEP_ENVIRONMENT_VARIABLE: "Allen's Step Environment Variable"
+        STEP_ENVIRONMENT_VARIABLE: "${{ secrets.STEP_SECRET_VARIABLE }}"
 
       run: |
         echo ""
