@@ -7,7 +7,7 @@ soup = BeautifulSoup(response.text, 'lxml')                                 # Cr
 c = 1
 pagination = soup.find('ul', class_='pagination')                           # Find the ul tag with class 'pagination'
 pages = pagination.find_all('a', class_='page-link')                        # Find all the a tags with class 'page-link' in the ul tag
-urls = ['']+[z.get('href') for z in pages if(z.text.isdigit())]             # Get the href attribute of all the a tags
+urls = ['']+[z.get('href') for z in pages if(z.text.isdigit())]             # Add the href attribute of all the a tags to the urls list
 
 for z in urls:
     response = requests.get(url+z)                                          # Page URL to scrape from 
