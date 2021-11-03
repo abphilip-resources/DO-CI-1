@@ -8,21 +8,21 @@ jobs:                                                   # Jobs
     runs-on: ubuntu-latest                              # Specified OS
     steps:
       - name: Job                                       # Name of the step
-        run: date                                       # Command to run
+        run: date                                       # Command to run return Date
 
   B:
     name: Windows                                       # Name of the job
     runs-on: windows-latest                             # Specified OS
     steps:
       - name: Job                                       # Name of the step
-        run: date                                       # Command to run
+        run: date                                       # Command to run return Date
 
   C:
     name: MacOS                                         # Name of the job
     runs-on: macos-latest                               # Specified OS
     steps:
       - name: Job                                       # Name of the step
-        run: date                                       # Command to run
+        run: date                                       # Command to run return Date
 
   D:
     name: Final                                         # Name of the job
@@ -30,4 +30,4 @@ jobs:                                                   # Jobs
     needs: [A, B, C]                                    # Dependencies
     steps:
       - name: Job                                       # Name of the step
-        run: date                                       # Command to run
+        run: date                                       # Command to run return Date

@@ -17,14 +17,14 @@ jobs:                                                           # Jobs
     runs-on: ubuntu-latest                                      # Specified OS                               
     steps:
     - name: My Repository                                       # Name of the step
-      uses: actions/checkout@v2                                 # Specified action
+      uses: actions/checkout@v2                                 # Specified action Checkout Code
       with:
         repository: allenalvin333/GFG_Learning                  # Repository
         ref: master                                             # Branch           
         path: ./CI_CD                                           # Path
 
     - name: Source Repository                                   # Name of the step
-      uses: actions/checkout@v2                                 # Specified action
+      uses: actions/checkout@v2                                 # Specified action Checkout Code
       with:
         repository: apache/tomcat                               # Repository
         ref: main                                               # Branch
@@ -35,17 +35,17 @@ jobs:                                                           # Jobs
     runs-on: ubuntu-latest                                      # Specified OS
     steps:
     - name: Before                                              # Name of the step
-      run: java -version                                        # Command to run
+      run: java -version                                        # Command to run return Java version
 
     - name: Update                                              # Name of the step
-      uses: actions/setup-java@v1                               # Specified action
+      uses: actions/setup-java@v1                               # Specified action Setup Java
       with:                                                     # Specified arguments
         java-version: '9.0.4'                                   # Java version
         java-package: jdk                                       # Java package (JRE, JDK, or JDK+FX)
         architecture: x64                                       # Core (x64 or x86)
 
     - name: After                                               # Name of the step
-      run: java -version                                        # Command to run
+      run: java -version                                        # Command to run return Java version
 
   D:
     name: Environment Variables                                 # Name of the job
@@ -58,7 +58,7 @@ jobs:                                                           # Jobs
       env:                                                      # Environment variable - 3
         STEP_ENVIRONMENT_VARIABLE: "${{ secrets.STEP_SECRET_VARIABLE }}"
 
-      run: |                                                    # Command to run
+      run: |                                                    # Command to run print variables
         echo ""
         echo "+------------------------------------------------------+"
         echo "| Accessing during runtime"

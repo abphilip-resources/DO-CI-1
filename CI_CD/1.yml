@@ -14,14 +14,14 @@ jobs:                                                   # Jobs to run in the wor
     runs-on: ubuntu-latest                              # Specified OS
     steps:                                              # Steps to run in the job
       - name: one                                       # Name of the step
-        uses: actions/checkout@v2                       # Specified action
+        uses: actions/checkout@v2                       # Specified action Checkout Code
       - name: two                           
-        run: "env | sort"                               # Specified command
+        run: "env | sort"                               # Specified command Sort Environment Variables
   job2:
     name: Windows                                       # Name of the job
     runs-on: windows-latest                             # Specified OS
     steps:                                              # Steps to run in the job
       - name: one                                       # Name of the step
-        uses: actions/checkout@v2                       # Specified action
+        uses: actions/checkout@v2                       # Specified action Checkout Code
       - name: two
-        run: "Get-ChildItem Env: | Sort-Object Name"    # Specified command
+        run: "Get-ChildItem Env: | Sort-Object Name"    # Specified command Sort Environment Variables

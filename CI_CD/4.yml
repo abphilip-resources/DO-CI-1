@@ -1,0 +1,58 @@
+name: Learn 4                                                             # Name of the workflow 
+
+on: [push]                                                                # Trigger event
+
+env:
+  FILE_NAME: CI_CD/hello                                                  # File name
+
+jobs:                                                                     # Jobs
+  A:
+    name: Build                                                           # Name of the job
+    runs-on: ubuntu-latest                                                # Specified OS
+    steps:
+    - name: Checkout                                                      # Name of the step
+      uses: actions/checkout@v1                                           # Specified action
+
+    - name: Build for Linux                                               # Name of the step
+      run: go build ${{ env.FILE_NAME }}.go                               # Specified command
+    - name: Build for Windows                                             # Name of the step
+      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go     # Specified command
+      
+    - name: Upload Linux Artifact                                         # Name of the step
+      uses: actions/upload-artifact@v1.0.0                                # Specified action
+      with:
+        name: linux                                                       # Artifact name
+        path: ./hello                                                     # Artifact path
+    - name: Upload Windows Artifact                                       # Name of the step
+      uses: actions/upload-artifact@v1.0.0                                # Specified action
+      with:
+        name: windows                                                     # Artifact name
+        path: ./hello.exe                                                 # Artifact path
+
+  B:
+    name: Linux                                                           # Name of the job
+    runs-on: ubuntu-latest                                                # Specified OS
+    needs: [A]                                                            # Dependencies
+    steps:
+    - name: Checkout                                                      # Name of the step
+      uses: actions/checkout@v1                                           # Specified action
+    - name: Download Artifact                                             # Name of the step
+      uses: actions/download-artifact@v1.0.0                              # Specified action
+      with:
+        name: linux                                                       # Artifact name
+    - name: Test                                                          # Name of the step
+      run: source ./CI_CD/test.sh                                         # Specified command
+
+  C:
+    name: Windows                                                         # Name of the job
+    runs-on: windows-latest                                               # Specified OS                                               
+    needs: [A]                                                            # Dependencies
+    steps:
+    - name: Checkout                                                      # Name of the step
+      uses: actions/checkout@v1                                           # Specified action
+    - name: Download Artifact                                             # Name of the step
+      uses: actions/download-artifact@v1.0.0                              # Specified action
+      with:
+        name: windows                                                     # Artifact name
+    - name: Test                                                          # Name of the step
+      run: windows/hello.exe                                              # Specified command
