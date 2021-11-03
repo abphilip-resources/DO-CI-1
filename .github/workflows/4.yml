@@ -6,62 +6,50 @@ env:
   FILE_NAME: CI_CD/hello
 
 jobs:
-  build:
+  A:
     name: Build
     runs-on: ubuntu-latest
     steps:
-
-    - name: Check out code
-      uses: actions/checkout@v1
-
-    - name: Build ${{ env.FILE_NAME }} for ubuntu-latest
+    - name: Build for Linux
       run: go build ${{ env.FILE_NAME }}.go
-
-    - name: Build ${{ env.FILE_NAME }} for windows-latest
+    - name: Build for Windows
       run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
-      
-    - name: Upload artifact for linux
+  
+  B:
+    name: Upload
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload Linux Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: linux
         path: ./hello
-
-    - name: Upload artifact for windows
+    - name: Upload Windows Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: windows
         path: ./hello.exe
 
-  test-linux:
-    name: Test Linux
+  C:
+    name: Linux
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-
-    - name: Check out code
-      uses: actions/checkout@v1
-
-    - name: Download artifact
+    - name: Download Artifact
       uses: actions/download-artifact@v1.0.0
       with:
         name: linux
-
-    - name: Test ${{ env.FILE_NAME }}
+    - name: Test 
       run: source ./CI_CD/test.sh
 
-  test-windows:
-    name: Test Windows
+  D:
+    name: Windows
     runs-on: windows-latest
     needs: [build]
     steps:
-
-    - name: Check out code
-      uses: actions/checkout@v1
-
-    - name: Download artifact
+    - name: Download Artifact
       uses: actions/download-artifact@v1.0.0
       with:
         name: windows
-        
-    - name: Test ${{ env.FILE_NAME }}
+    - name: Test 
       run: windows/hello.exe
