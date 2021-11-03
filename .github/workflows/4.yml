@@ -3,7 +3,7 @@ name: Learn 4
 on: [push]
 
 env:
-  FILE_NAME: CI_CD/hello
+  FILE_NAME: hello
 
 jobs:
   build:
