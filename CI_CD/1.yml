@@ -7,6 +7,7 @@ on:                                                     # Triggers to run the wo
   pull_request:                                         # Trigger 2 is pulling a request
     branches:
       - master                                          # From specified branch
+    types: [opened, reopened]                           # On specified types
 
 jobs:                                                   # Jobs to run in the workflow
   job1:
