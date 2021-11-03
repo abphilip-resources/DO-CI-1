@@ -64,4 +64,4 @@ jobs:
         name: windows
         
     - name: Test ${{ env.FILE_NAME }}
-      run: windows/${{ env.FILE_NAME }}.exe
+      run: windows/hello.exe
