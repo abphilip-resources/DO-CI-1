@@ -16,12 +16,6 @@ jobs:
       run: go build ${{ env.FILE_NAME }}.go
     - name: Build for Windows
       run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
-  
-  B:
-    name: Upload
-    runs-on: ubuntu-latest
-    needs: [A]
-    steps:
     - name: Upload Linux Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
@@ -33,10 +27,10 @@ jobs:
         name: windows
         path: ./hello.exe
 
-  C:
+  B:
     name: Linux
     runs-on: ubuntu-latest
-    needs: [B]
+    needs: [A]
     steps:
     - name: Checkout 
       uses: actions/checkout@v1
@@ -47,10 +41,10 @@ jobs:
     - name: Test 
       run: source ./CI_CD/test.sh
 
-  D:
+  C:
     name: Windows
     runs-on: windows-latest
-    needs: [B]
+    needs: [A]
     steps:
     - name: Checkout 
       uses: actions/checkout@v1
