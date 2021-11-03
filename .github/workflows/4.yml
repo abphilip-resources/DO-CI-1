@@ -33,7 +33,7 @@ jobs:
   C:
     name: Linux
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [B]
     steps:
     - name: Download Artifact
       uses: actions/download-artifact@v1.0.0
@@ -45,7 +45,7 @@ jobs:
   D:
     name: Windows
     runs-on: windows-latest
-    needs: [build]
+    needs: [B]
     steps:
     - name: Download Artifact
       uses: actions/download-artifact@v1.0.0
