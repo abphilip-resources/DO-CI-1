@@ -47,7 +47,7 @@ jobs:
         name: linux
 
     - name: Test ${{ env.FILE_NAME }}
-      run: source ./test.sh
+      run: source ./CI_CD/test.sh
 
   test-windows:
     name: Test Windows
