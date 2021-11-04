@@ -1,9 +1,15 @@
+#!/usr/bin/env python
+"""
+mascot: a microservice for serving mascot data
+"""
 import json
 from flask import Flask, jsonify, abort, make_response
 
 APP = Flask(__name__)
 
+# Load the data
 MASCOTS = json.load(open('data.json', 'r'))
+
 
 @APP.route('/', methods=['GET'])
 def get_mascots():
@@ -13,6 +19,7 @@ def get_mascots():
     Returns: A list of mascot objects
     """
     return jsonify(MASCOTS)
+
 
 @APP.route('/<guid>', methods=['GET'])
 def get_mascot(guid):
