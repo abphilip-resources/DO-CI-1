@@ -3,7 +3,7 @@ name: Learn 5
 on: push
 
 env:
-  APPLICATION_NAME: Allen
+  APPLICATION_NAME: app2
 jobs:
   lint:
     runs-on: ubuntu-20.04
