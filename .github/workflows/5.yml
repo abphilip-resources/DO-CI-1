@@ -3,7 +3,7 @@ name: Learn 5
 on: push
 
 env:
-  APPLICATION_NAME: app2
+  APPLICATION_NAME: Allen
 jobs:
   lint:
     runs-on: ubuntu-20.04
@@ -12,11 +12,11 @@ jobs:
     - name: Setup Python environment
       uses: actions/setup-python@v1.1.1
     - name: Install requirements
-      run: pip install --quiet --requirement requirements.txt
+      run: pip install --quiet --requirement 5/requirements.txt
     - name: Lint code
       run: |
-        flake8 --ignore=E501,E231 *.py
-        pylint --disable=C0301 --disable=C0326 *.py
+        flake8 --ignore=E501,E231 5/*.py
+        pylint --disable=C0301 --disable=C0326 5/*.py
     - name: Run unit tests
       run: |
         python -m unittest --verbose --failfast
