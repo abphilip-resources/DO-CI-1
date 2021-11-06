@@ -3,7 +3,7 @@ name: Learn 6
 on: [push]
 
 jobs:
-  Final:
+  Custom:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

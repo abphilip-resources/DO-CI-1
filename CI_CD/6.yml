@@ -3,7 +3,7 @@ name: Learn 6                                                   # Name of the Wo
 on: [push]                                                      # Trigger event
 
 jobs:                                                           # Jobs
-  Final:                                                        # Name of the job
+  Custom:                                                       # Name of the job
     runs-on: ubuntu-latest                                      # Specified OS
     steps:
     - name: Checkout                                            # Name of the step
