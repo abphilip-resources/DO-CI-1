@@ -2,7 +2,7 @@ name: Learn 5                                   # Name of the workflow
 
 on: [push]                                      # Trigger event   
 
-jobs:                                           # Jobs
+jobs:                                           # Jobs 
   A:
     name: Test                                  # Name of the job
     runs-on: ubuntu-latest                      # Specified OS
