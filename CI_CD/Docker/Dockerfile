@@ -11,8 +11,9 @@ RUN apk add --no-cache \
 # Install the required packages
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-COPY sample_push_event.json /sample_push_event.json
 # Copy the entrypoint script to the /usr/local/bin directory
+COPY sample_push_event.json /sample_push_event.json 
+# Copy the sample event to the container
 
 ENTRYPOINT ["entrypoint.sh"]
 # Run the entrypoint script
