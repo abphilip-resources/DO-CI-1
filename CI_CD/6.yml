@@ -1,4 +1,4 @@
-name: Learn 7                                       # Name of the Workflow
+name: Learn 6                                       # Name of the Workflow
 
 on: [push]                                          # Trigger event
 

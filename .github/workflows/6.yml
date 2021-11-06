@@ -1,4 +1,4 @@
-name: Learn 7
+name: Learn 6
 
 on: [push]
 
@@ -11,4 +11,4 @@ jobs:
     - name: Action
       uses: allenalvin333/GFG_Learning@custom
       with:
-        entrypoint: /A/
+        entrypoint: ./A
