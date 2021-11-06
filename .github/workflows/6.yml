@@ -9,6 +9,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Action
-      uses: allenalvin333/GFG_Learning@custom
-      with:
-        entrypoint: ./A
+      uses: allenalvin333/GFG_Learning/A@custom
