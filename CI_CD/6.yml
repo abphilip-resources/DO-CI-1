@@ -1,14 +1,12 @@
-name: Learn 6                                       # Name of the Workflow
+name: Learn 6                                                   # Name of the Workflow
 
-on: [push]                                          # Trigger event
+on: [push]                                                      # Trigger event
 
-jobs:                                               # Jobs
-  Final:                                            # Name of the job
-    runs-on: ubuntu-latest                          # Specified OS
+jobs:                                                           # Jobs
+  Final:                                                        # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS
     steps:
-    - name: Checkout                                # Name of the step
-      uses: actions/checkout@v2                     # Specified action Checkout Code
-    - name: Action                                  # Name of the step
-      uses: allenalvin333/GFG_Learning@custom       # Specified action 
-      with:                                         # Specified arguments
-        path: .                                     # Specified path
+    - name: Checkout                                            # Name of the step
+      uses: actions/checkout@v2                                 # Specified action Checkout Code
+    - name: Action                                              # Name of the step
+      uses: allenalvin333/GFG_Learning/CI_CD/custom@master      # Specified action
