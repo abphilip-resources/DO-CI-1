@@ -2,9 +2,6 @@ name: Learn 6
 
 on: [push]
 
-env:
-  FILE_NAME: CI_CD/hello
-
 jobs:
   A:
     name: Test

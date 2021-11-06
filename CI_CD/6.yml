@@ -1,0 +1,27 @@
+name: Learn 6                                   # Name of the workflow  
+
+on: [push]                                      # Trigger event   
+
+jobs:                                           # Jobs
+  A:
+    name: Test                                  # Name of the job
+    runs-on: ubuntu-latest                      # Specified OS
+    steps:
+    - name: Checkout                            # Name of the step
+      uses: actions/checkout@v1                 # Specified action Checkout Code
+    - name: Run Python                          # Name of the step
+      run: python CI_CD/date.py                 # Specified action Run Python Script
+
+  B:
+    name: Build                                 # Name of the job
+    runs-on: ubuntu-latest                      # Specified OS
+    needs: [A]                                  # Dependency  
+    steps:
+    - name: Checkout                            # Name of the step
+      uses: actions/checkout@v1                 # Specified action Checkout Code  
+    - name: Upload Artifact                     # Name of the step
+      uses: actions/upload-artifact@v2          # Specified action Upload Artifact
+      with:
+        name: Result                            # Name of the artifact
+        path: .                                 # Path of the artifact
+   
