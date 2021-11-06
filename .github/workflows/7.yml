@@ -11,4 +11,4 @@ jobs:
     - name: Action
       uses: allenalvin333/GFG_Learning@custom
       with:
-        path: ./A
+        entrypoint: /A
