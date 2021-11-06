@@ -21,14 +21,7 @@ jobs:
     - name: Lint Code
       run: flake8 --ignore=E501,E231 CI_CD/5/*.py
     - name: Unit Tests
-      run: python -m unittest --verbose --failfast   
-
-    - name: Set up GCloud
-      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-      with:
-        # version: '274.0.1'
-        service_account_email: ${{ secrets.GCP_SERVICE_ACCT_EMAIL }}
-        service_account_key: ${{ secrets.GCP_SERVICE_ACCT_KEY }}  
+      run: python -m unittest --verbose --failfast     
 
   B:
     name: Build

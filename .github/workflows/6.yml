@@ -1,0 +1,27 @@
+name: Learn 6
+
+on: [push]
+
+env:
+  FILE_NAME: CI_CD/hello
+
+jobs:
+  A:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+    - name: Run Python
+      run: python CI_CD/date.py
+
+  B:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: [A]
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+   
