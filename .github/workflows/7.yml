@@ -9,4 +9,4 @@ jobs:
     - name: Checkout 
       uses: actions/checkout@v2
     - name: Action 
-      uses: allenalvin333/gfg_learning/CI_CD/custom@master
+      uses: allenalvin333/gfg_learning@master
