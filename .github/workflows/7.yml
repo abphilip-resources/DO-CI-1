@@ -1,0 +1,12 @@
+name: Learn 7
+
+on: [push]
+
+jobs:
+  Final:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v2
+    - name: Action 
+      uses: allenalvin333/gfg_learning/CI_CD/custom@master
