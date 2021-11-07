@@ -1,21 +1,21 @@
 name: Learn 7                                                   # Name of the Workflow
 
-on: [push]
+on: [push]                                                      # Trigger events
 
 env:
-  APPLICATION_NAME: allen
+  APPLICATION_NAME: allen                                       # Environment variable for application name
 
-jobs: 
+jobs:                                                           # Jobs                   
   A:
-    name: Requirements
-    runs-on: ubuntu-latest
+    name: Requirements                                          # Name of the job
+    runs-on: ubuntu-latest                                      # Specified OS                  
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
+    - name: Checkout                                            # Name of the step
+      uses: actions/checkout@v1                                 # Specified action Checkout Code
 
-    - name: Setup Python 
-      uses: actions/setup-python@v2
-    - name: Install Requirements
+    - name: Setup Python                                        # Name of the step    
+      uses: actions/setup-python@v2                             # Specified action Setup Python
+    - name: Install Requirements                                # Specified action to install dependencies
       run: pip install --quiet --requirement CI_CD/gcp/requirements.txt
 
     - name: Lint Code
