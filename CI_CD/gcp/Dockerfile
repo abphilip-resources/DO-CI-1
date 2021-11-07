@@ -1,10 +1,10 @@
-# use a python image
+# Use a python image
 FROM python:3.10
 
-# set the working directory in the container to /app
+# Set the working directory in the container to /app
 WORKDIR /app
 
-# add the current directory to the container as /app
+# Add the current directory to the container as /app
 COPY . /app
 
 # pip install flask
@@ -17,10 +17,12 @@ RUN pip install --upgrade pip && \
         pytest \
         pytest-flask
 
-# expose the default flask port
+# Expose the default flask port 8080
 EXPOSE 8080
 
-# execute the Flask app
+# Execute the Flask app
 ENTRYPOINT ["python"]
+# Healthcheck for the app
 HEALTHCHECK CMD curl --fail http://localhost:8080/ || exit 1
+# Run the flask app
 CMD ["/app/app.py"]
