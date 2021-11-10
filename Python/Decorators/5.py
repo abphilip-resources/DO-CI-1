@@ -1,20 +1,17 @@
 from functools import wraps
 
-def munch(start, end):
-    def do_munch(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            new_string = ''
-            result = func(*args, **kwargs)
-            for index, char in enumerate(result):
-                c = 'x' if start <= index < end else char
-                new_string += c
-            return new_string
-        return wrapper
-    return do_munch
+def munch(start, end):                                      # Function receives start, end from decorator
+    def dec(f):                                             # Define a decorator function
+        @wraps(f)   
+        def wrapper(*args, **kwargs):                       # Define a wrapper function
+            s = ''
+            for z,c in enumerate(f(*args, **kwargs)):       # Loop through the fib's return value
+                s+='x' if z in range(start,end) else c      # If the index is in the range, replace with 'x'
+            return s                                        # Return the modified string
+        return wrapper                                      # Return the wrapper function 
+    return dec                                              # Return the decorator function
 
-@munch(0, 10)
-def fib():
-    return 'Fibonacci'
-
-print(fib())
+@munch(4,6)                                                 # Apply the decorator with parameters
+def fib():                                                  # Define a function
+    return 'Fibonacci'                                      # Return the string
+print(fib())                                                # Call the function
