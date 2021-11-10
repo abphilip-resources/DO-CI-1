@@ -1,4 +1,5 @@
-from functools import wraps             
+from functools import wraps  
+           
 def dec1(f):                            # Define a decorator function
     def wrapper():                      # Define a wrapper function
         '''wrapper doc'''
