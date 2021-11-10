@@ -1,20 +1,16 @@
-from time import perf_counter
+from time import perf_counter as pc
 from functools import wraps
 
-def timer(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        start = perf_counter()
-        result = func(*args, **kwargs)
-        end = perf_counter()
-        duration = end - start
-        arg = str(*args)
-        print(f'{func.__name__}({arg}) = {result} -> {duration:.8f}s')
-        return result
-    return wrapper
+def timer(f):                                           # Define a decorator function
+    @wraps(f)
+    def wrapper(*args, **kwargs):                       # Define a wrapper function
+        s,a,e = pc(),f(*args,**kwargs),pc()             # s = start time, a = answer, e = end time
+        print(f'f({str(*args)})={a} ({(e-s):.8f}s)')    # Print input, output and compute time
+        return a                                        # Return answer                              
+    return wrapper                                      # Return wrapper function
 
 @timer
-def fib(n):
-    if n < 2: return n
-    else: return fib(n-1) + fib(n-2)
-fib(20)
+def fib(n):                                             # Define a function
+    if n < 2: return n                              
+    else: return fib(n-1) + fib(n-2)                    # Recursive call
+fib(20)                                                 # Call function
