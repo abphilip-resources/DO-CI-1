@@ -1,6 +1,6 @@
 from functools import wraps
 
-def munch(start, end):                                      # Function receives start, end from decorator
+def crypt(start, end):                                      # Function receives start, end from decorator
     def dec(f):                                             # Define a decorator function
         @wraps(f)   
         def wrapper(*args, **kwargs):                       # Define a wrapper function
@@ -11,7 +11,7 @@ def munch(start, end):                                      # Function receives 
         return wrapper                                      # Return the wrapper function 
     return dec                                              # Return the decorator function
 
-@munch(4,6)                                                 # Apply the decorator with parameters
+@crypt(4,6)                                                 # Apply the decorator with parameters
 def fib():                                                  # Define a function
     return 'Fibonacci'                                      # Return the string
 print(fib())                                                # Call the function
