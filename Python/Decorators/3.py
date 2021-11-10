@@ -9,7 +9,7 @@ def fib1(*args, **kwargs):                      # Define a function with variabl
 fib1(1, 2, k1=3, k2=4)                          # Call the function with variable arguments
 
 def dec(f):                                     # Define a decorator function
-    @wraps(f)
+    @wraps(f)                                   # Replace wrapper's attributes with f's 
     def wrapper(*args, **kwargs):               # Define a wrapper function
         print("\nWrapper: ")    
         return f()+' '.join(map(str, args))     # Return the result of the decorated function

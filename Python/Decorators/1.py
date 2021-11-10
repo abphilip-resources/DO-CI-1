@@ -9,12 +9,12 @@ def dec1(f):                            # Define a decorator function
     return wrapper                      # Return the wrapper function
 
 def dec2(f):                            # Define a decorator function
-    @wraps(f)                           # Use the decorator
+    @wraps(f)                           # Replace wrapper's attributes with f's 
     def wrapper():                      # Define a wrapper function
         '''wrapper doc'''
         print('+-------------+')
         print('|             |')
-        print('|  '+f()+'  |')          # Action
+        print('|  '+ f() +'  |')        # Action
         print('|             |')
         print('+=============+')
     return wrapper                      # Return the wrapper function

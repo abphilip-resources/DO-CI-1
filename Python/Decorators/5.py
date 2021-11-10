@@ -2,7 +2,7 @@ from functools import wraps
 
 def crypt(start, end):                                      # Function receives start, end from decorator
     def dec(f):                                             # Define a decorator function
-        @wraps(f)   
+        @wraps(f)                                           # Replace wrapper's attributes with f's 
         def wrapper(*args, **kwargs):                       # Define a wrapper function
             s = ''
             for z,c in enumerate(f(*args, **kwargs)):       # Loop through the fib's return value
