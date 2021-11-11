@@ -1,8 +1,8 @@
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__)                                   # App created
 
-@app.route('/')
+@app.route('/')                                         # Decorator for 
 def print_fib():
     return '<h1>Fibonacci</h1>'
 
