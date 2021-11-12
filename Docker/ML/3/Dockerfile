@@ -1,18 +1,16 @@
-FROM continuumio/miniconda3
-
-LABEL maintainer="Allen Ben Philipose <allenbphilip@gmail.com>"
-LABEL description="Learn1"
+FROM python:3.7.3-slim
+LABEL maintainer="Jonathan Fernandes <theolympicsguy@gmail.com>"
+LABEL version="0.1"
+LABEL description="Noteboook and data (.csv file) to provide a summary \
+                  of the total medals won by participating countries \
+                  in the 2008 Summer Olympics."
 
 WORKDIR /data
 
-RUN conda install jupyter -y && \
-    conda install python==3.7.3 -y && \
-    conda install pandas==0.24.2 -y && \
-    conda install seaborn==0.9.0 -y && \
-    conda clean -y -all
+COPY . /data
+
+RUN pip install numpy pandas==0.24.2 seaborn jupyter
 
 EXPOSE 8888
-
-VOLUME /data
 
 CMD ["jupyter","notebook","--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
