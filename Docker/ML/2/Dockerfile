@@ -10,7 +10,7 @@ RUN conda install jupyter -y && \
     conda install python==3.7.3 -y && \
     conda install pandas==0.24.2 -y && \
     conda install seaborn==0.9.0 -y && \
-    conda clean -y -all
+    conda clean -y -a
 
 EXPOSE 8888
 

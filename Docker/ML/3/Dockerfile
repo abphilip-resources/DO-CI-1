@@ -1,5 +1,5 @@
 FROM python:3.7.3-slim
-LABEL maintainer="Jonathan Fernandes <theolympicsguy@gmail.com>"
+LABEL maintainer="Allen Ben Philipose <allenbphilip@gmail.com>"
 LABEL version="0.1"
 LABEL description="Noteboook and data (.csv file) to provide a summary \
                   of the total medals won by participating countries \
