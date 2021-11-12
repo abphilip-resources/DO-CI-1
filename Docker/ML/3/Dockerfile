@@ -9,7 +9,9 @@ WORKDIR /data
 
 COPY . /data
 
-RUN pip install numpy pandas==0.24.2 seaborn jupyter
+RUN pip install jupyter
+
+RUN pip install numpy
 
 EXPOSE 8888
 
