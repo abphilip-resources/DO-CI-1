@@ -1,8 +1,6 @@
 FROM continuumio/miniconda3
-
 LABEL maintainer="Allen Ben Philipose <allenbphilip@gmail.com>"
-LABEL description="Dev environment for machine learning and data science team \
-                  with access to shared data in network drive."
+LABEL version="0.1"
 
 WORKDIR /data
 
@@ -14,6 +12,10 @@ WORKDIR /data
 
 RUN conda install jupyter -y && \
     conda install python -y && \
+    conda clean -y -all
+
+RUN conda install pandas -y && \
+    conda install seaborn -y && \
     conda clean -y -all
 
 EXPOSE 8888
