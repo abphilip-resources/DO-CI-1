@@ -10,8 +10,8 @@
     docker container ls                         --> list all running containers
     docker container ls -a                      --> list all containers
     docker container run -it <image_name>       --> run container from image
-    > -v "%cd%":/data <image_name> bash         --> run container with data volume
-    > -p 8888:8888 <image_name>                 --> run container with port
+    >   -v "%cd%":/data <image_name> bash       --> run container with data volume
+    >   -p 8888:8888 <image_name>               --> run container with port
     docker container stop <container_id>        --> stop container
     docker container rm <container_id>          --> remove container
 
