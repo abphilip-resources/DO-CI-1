@@ -1,17 +1,14 @@
-FROM python:3.7.3-slim
+FROM python
 LABEL maintainer="Allen Ben Philipose <allenbphilip@gmail.com>"
 LABEL version="0.1"
-LABEL description="Noteboook and data (.csv file) to provide a summary \
-                  of the total medals won by participating countries \
-                  in the 2008 Summer Olympics."
 
 WORKDIR /data
-
 COPY . /data
 
 RUN pip install jupyter
-
 RUN pip install numpy
+RUN pip install pandas
+RUN pip install seaborn
 
 EXPOSE 8888
 
