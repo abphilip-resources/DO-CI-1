@@ -1,4 +1,4 @@
-app:
+allen:
   container_name: app
   restart: always
   build: .
