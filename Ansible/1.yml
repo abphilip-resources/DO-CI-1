@@ -1,5 +1,5 @@
 ---
-  - name: "Allen"
+  - name: "Learn1"
     hosts: localhost
     tasks:
       - name: "Ping"

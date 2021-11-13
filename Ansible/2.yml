@@ -1,0 +1,10 @@
+---
+  - name: "Learn2"
+    hosts: localhost
+    tasks:
+      - name: "Ping"
+        ping:
+      - name: "Find"
+        find:
+          path: ~/Here
+          file_type: file
