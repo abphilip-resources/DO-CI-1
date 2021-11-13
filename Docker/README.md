@@ -13,6 +13,7 @@
     >   -v "%cd%":/<dir> <image_name> bash      --> run container with data volume
     >   -p 8888:8888 <image_name>               --> run container with port
     docker container stop <container_id>        --> stop container
+    docker container start <container_id>       --> start container
     docker container rm <container_id>          --> remove container
 
 ### Dockerhub
