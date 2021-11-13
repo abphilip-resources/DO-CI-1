@@ -16,6 +16,12 @@
     docker container start <container_id>       --> start container
     docker container rm <container_id>          --> remove container
 
+### Compose
+    docker-compose build                        --> build all images
+    docker-compose up                           --> start all containers
+    docker-compose up -d <container_name>       --> start particular container first
+    docker-compose down                         --> stop all containers
+
 ### Dockerhub
     docker login                                --> login to dockerhub
     docker tag <image_id> <user>/<repo>:<v>     --> tag image, default version: "latest"
