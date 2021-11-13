@@ -1,0 +1,16 @@
+---                               # YAML document with Ansible Syntax
+  - name: "Learn4"                # Ansible task name
+    hosts: all                    # Ansible host list   
+    become: yes                                       
+
+    tasks:
+      - name: "Installed"         # Ansible task name
+        apt:
+          name: 
+          - ntp                   # Install Package
+          state: present          # Ansible task state
+      - name: "Running"           # Ansible task name       
+        service:
+          name: ntp               # Service name
+          state: started          # Ansible task state
+          enabled: yes

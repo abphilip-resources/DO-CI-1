@@ -1,0 +1,28 @@
+---                                                         # YAML document with Ansible Syntax
+  - name: "Learn5"                                          # Ansible task name
+    hosts: servers                                          # Ansible host list   
+    strategy: free                                          # Fastest execution of tasks
+
+    tasks:
+      - name: "Install Nginx"                               # Ansible task name
+        debug:
+          msg: "Installing on {{ inventory_hostname }}"     # Ansible debug message
+      
+      - name: "Upgrade Nginx"                               # Ansible  task name       
+        debug:
+          msg: "Upgrade {{ inventory_hostname }}"           # Ansible debug message
+
+      - name: "Configure Nginx"                             # Ansible task name
+        debug:
+          msg: "Start {{ inventory_hostname }}"             # Ansible debug message
+        notify: restart nginx                               # Notify when handler runs
+        changed_when: True
+
+      - name: "Verify Nginx"                                # Ansible  task name       
+        debug:
+          msg: "Verify {{ inventory_hostname }}"            # Ansible debug message
+
+    handlers:
+    - name: restart nginx                                   # Ansible handler name
+      debug:
+        msg: "Called Restart Handler"                       # Ansible debug message
