@@ -1,15 +1,15 @@
----
-  - name: "Learn3"
-    hosts: servers
-    serial: 1
+---                                                   # YAML document with Ansible Syntax
+  - name: "Learn3"                                    # Ansible task name
+    hosts: servers                                    # Ansible host list   
+    serial: 1                                         # Serial execution of tasks
 
     tasks:
-      - name: "Shutdown Server"
+      - name: "Shutdown Server"                       # Ansible task name
         debug:
-          msg: "Shutdown {{ inventory_hostname }}"
-      - name: "Upgrade Firmware"
+          msg: "Shutdown {{ inventory_hostname }}"    # Ansible debug message
+      - name: "Upgrade Firmware"                      # Ansible task name       
         debug:
-          msg: "Upgrade {{ inventory_hostname }}"
-      - name: "Start Server"
+          msg: "Upgrade {{ inventory_hostname }}"     # Ansible debug message
+      - name: "Start Server"                          # Ansible task name
         debug:
-          msg: "Start {{ inventory_hostname }}"
+          msg: "Start {{ inventory_hostname }}"       # Ansible debug message
