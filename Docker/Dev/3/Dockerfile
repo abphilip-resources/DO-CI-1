@@ -1,5 +1,4 @@
-FROM node
-
+FROM node:14.18.1-alpine3.14
 WORKDIR /client
 
 COPY package*.json /client/
