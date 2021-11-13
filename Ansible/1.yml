@@ -1,0 +1,10 @@
+---
+  - name: "Allen"
+    hosts: localhost
+    tasks:
+      - name: "Ping"
+        ping:
+      - name: "Stress"
+        homebrew:
+          name: stress
+          state: present
