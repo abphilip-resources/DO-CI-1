@@ -6,5 +6,5 @@
         ping:
       - name: "Find"
         find:
-          path: ~/Here
+          path: ~/Github/Ansible/Here
           file_type: file
