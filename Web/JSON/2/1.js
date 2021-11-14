@@ -2,7 +2,7 @@ var request = new XMLHttpRequest();					// Create Request
 url = 'https://hplussport.com/api/products'			// URL
 request.open('GET', url);							// Open Request 
 
-request.onload = function() {						// Request loaded
+request.onload = function() {						// Action once data received
 	var response = request.response;				// Get Response
 	console.log(typeof response);					// Check Type of Response --> String
 	var jsonData = JSON.parse(response);			// Parse to JSON
