@@ -9,7 +9,7 @@ request.onload = function() {						    // Action once data received
 request.send()                                          // Send Request              
 
 // No. 2 --> jQuery & AJAX Request 
-$.ajax ({                                               // Asynchronous Javascript And XML
+$.ajax ({                                               // Asynchronous JS And XML
 	url: URL,                                                         
 	success: function(response) {                       // Action once data received
 		console.log(response)                           // Log Response
