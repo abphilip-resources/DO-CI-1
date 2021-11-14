@@ -7,10 +7,16 @@ request.open('GET', URL);							    // Open Request
 request.onload = function() {						    // Action once data received
 	data = JSON.parse(request.response)					// Parse JSON
 	console.log(data);	        						// Log Response
-	console.log(data[0].name);							// Access Data via console
+	console.log(data[0].name);							// Log first item's name
 
-	page = document.createElement('li');				// Create Element
-	page.innerHTML = data[0].name;						// Set Element Content
-	document.body.appendChild(page);					// Append Element to Body
+	for(z in data) {									// Loop through data
+		text = document.createElement('li');			// Create List element
+		text.innerHTML = data[z].name;					// Set Element Content
+		document.body.appendChild(text);				// Append Element to Body
+
+		img = document.createElement('img');			// Create Image element
+		img.setAttribute('src', data[z].image);			// Set Element Content
+		document.body.appendChild(img);					// Append Element to Body
+	}
 };
 request.send()                                          // Send Request     
