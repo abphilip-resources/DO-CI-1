@@ -1,30 +1,30 @@
-var request = new XMLHttpRequest();
-url = 'https://hplussport.com/api/products'
-request.open('GET', url);
+var request = new XMLHttpRequest();					// Create Request
+url = 'https://hplussport.com/api/products'			// URL
+request.open('GET', url);							// Open Request 
 
-request.onload = function() {
-	var response = request.response;
-	console.log(typeof response);
-	var jsonData = JSON.parse(response);
-	console.log(typeof jsonData);
+request.onload = function() {						// Request loaded
+	var response = request.response;				// Get Response
+	console.log(typeof response);					// Check Type of Response --> String
+	var jsonData = JSON.parse(response);			// Parse to JSON
+	console.log(typeof jsonData);					// Check Type of Response --> Object
 };
-request.oneerror = function() {
-	console.log("Error Here!");
+request.oneerror = function() {						// If Error
+	console.log("Error Here!");						// Log Error
 }
 
-request.send();
+request.send();										// Send Request
 
-var car = {
-	make: "Honda",
+var car = {											// Create Object car
+	make: "Honda",									// String property 
 	model: "City",
-	year: 2014,
-	honk: function() { 
-		alert("Beep beep"); 
+	year: 2014,										// Number property 
+	honk: function() { 								// Function property
+		alert("Beep beep"); 						// Alert command
 	},
-	driver: { 
+	driver: { 										// Object property
 		name: "Allen", 
 		license: "TN" 
 	}
  };
- console.log(car.make);
- console.log(car.driver.name);
+ console.log(car.make);								// Log property make of object car
+ console.log(car.driver.name);						// Log property name of object driver of object car

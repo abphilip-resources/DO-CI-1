@@ -1,15 +1,15 @@
-var request = new XMLHttpRequest();
-url = 'https://hplussport.com/api/wrong'
-request.open('GET', url);
+var request = new XMLHttpRequest();					// Create Request
+url = 'https://hplussport.com/api/wrong'			// URL
+request.open('GET', url);							// Open Request
 
-request.onload = function() {
-	var response = request.response;
-	console.log(response);
-	var jsonData = JSON.parse(response);
-	console.log(jsonData);
+request.onload = function() {						// Request loaded
+	var response = request.response;				// Get Response
+	console.log(response);							// Log Response
+	var jsonData = JSON.parse(response);			// Parse to JSON
+	console.log(jsonData);							// Log JSON
 };
-request.oneerror = function() {
-	console.log("Error Here!");
+request.oneerror = function() {						// If Error
+	console.log("Error Here!");						// Log Error
 }
 
-request.send();
+request.send();										// Send Request
