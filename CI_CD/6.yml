@@ -9,4 +9,4 @@ jobs:                                   # Jobs
     - name: Checkout                    # Name of the step
       uses: actions/checkout@v2         # Specified action Checkout Code
     - name: Action                      # Specified action Run dockerfile from 'custom' directory               
-      uses: allenalvin333/GFG_Learning/CI_CD/custom@master      
+      uses: allenalvin333/Learning/CI_CD/custom@master      

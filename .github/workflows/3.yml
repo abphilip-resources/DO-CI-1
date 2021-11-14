@@ -19,7 +19,7 @@ jobs:
     - name: My Repository
       uses: actions/checkout@v2
       with:
-        repository: allenalvin333/GFG_Learning 
+        repository: allenalvin333/Learning 
         ref: master               
         path: ./CI_CD
 
