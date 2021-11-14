@@ -1,9 +1,10 @@
-URL = 'https://hplussport.com/api/products?qty=2&order=name'
+URL = 'https://hplussport.com/api/products?qty=5&order=name'
 // '?' --> Parameters after this
 // '&' --> Connecting two parameters
 
 var request = new XMLHttpRequest();					    // Create Request
 request.open('GET', URL);							    // Open Request 
+
 request.onload = function() {						    // Action once data received
 	data = JSON.parse(request.response)					// Parse JSON
 	console.log(data);	        						// Log Response
@@ -19,4 +20,5 @@ request.onload = function() {						    // Action once data received
 		document.body.appendChild(img);					// Append Element to Body
 	}
 };
-request.send()                                          // Send Request     
+
+request.send();                                         // Send Request     

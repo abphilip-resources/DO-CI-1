@@ -6,7 +6,7 @@ request.open('GET', URL);							    // Open Request
 request.onload = function() {						    // Action once data received
 	console.log(JSON.parse(request.response));	        // Parse JSON and Log Response
 };
-request.send()                                          // Send Request              
+request.send();                                         // Send Request              
 
 // No. 2 --> jQuery & AJAX Request 
 $.ajax ({                                               // Asynchronous JS And XML
