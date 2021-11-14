@@ -35,10 +35,10 @@ me = JSON.stringify(me);                            // Convert to JSON
 me = JSON.parse(me);                                // Convert to Object
 
 // No. 3 --> AJAX with JSON
-var x = new XMLHttpRequest();                   
-x.onreadystatechange = function() {
+var x = new XMLHttpRequest();                       
+x.onreadystatechange = function() {                 // When ready state changes
     if (this.readyState == 4 && this.status == 200) {  
-        var r = JSON.parse(x.responseText);
+        var r = JSON.parse(x.responseText);         // Convert to Object
         var crowd = r.crowd;
 
         var output = '';
