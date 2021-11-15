@@ -1,3 +1,4 @@
+import json
 from flask import Flask
 from flask import url_for
 from flask import request
@@ -16,8 +17,15 @@ def about():
 
 @app.route('/your-url', methods=['POST','GET'])
 def your_url():
+    urls = {}
     if(request.method=='POST'):
-        urls = {}
+        if os.path.exists('urls.json'):
+            with open('urls.json') as urls_file:
+                urls = json.load(urls_file)
+
+        if request.form['code'] in urls.keys():
+            return redirect(url_for('home'))
+
         urls[request.form['code']] = {'url':request.form['url']}
         with open('urls.json','w') as url_file:
             json.dump(urls, url_file)
