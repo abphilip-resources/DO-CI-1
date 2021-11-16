@@ -1,4 +1,6 @@
 # Self Learning
 
 ### Pending:
-- Docker 
+- Docker - CI
+- Docker - Dev 3&4
+- Python - Flask
