@@ -1,1 +1,4 @@
 # Self Learning
+
+### Pending:
+- Docker 
