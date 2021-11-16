@@ -1,18 +1,27 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, abort, session, jsonify
-import json
-import os.path
-from werkzeug.utils import secure_filename
+import json                                                                     # JSON handling
+import os.path                                                                  # File handling
+from werkzeug.utils import secure_filename                                      # Ensuring security of uploaded file 
+from flask import Flask                                                         # Web app construction
+from flask import request                                                       # Handling user I/O
+from flask import redirect                                                      # URL Redirection
+from flask import render_template                                               # Return a webpage
+from flask import url_for                                                       # Return the URL for an object
+from flask import flash                                                         # Alert messages
+from flask import abort                                                         # Abort a request
+from flask import session                                                       # Session handling for user
+from flask import jsonify                                                       # Converting to JSON
 
-app = Flask(__name__)
-app.secret_key = 'h432hi5ohi3h5i5hi3o2hi'
+app = Flask(__name__)                                                           # Name of the app
+app.secret_key = 'Alvin333#'                                                    # Secret Key
 
-@app.route('/')
+@app.route('/')                                                                 # Home Page
 def home():
-    return render_template('home.html', codes=session.keys())
+    return render_template('home.html', codes=session.keys())                   # Display home.html
 
-@app.route('/your-url', methods=['GET','POST'])
+@app.route('/your-url', methods=['GET','POST'])                                 # GET & POST methods accepted
 def your_url():
-    if request.method == 'POST':
+    if(request.method=='GET'): return redirect(url_for('home'))                 # If GET, redirect to home page
+    else:
         urls = {}
 
         if os.path.exists('urls.json'):
@@ -20,7 +29,8 @@ def your_url():
                 urls = json.load(urls_file)
 
         if request.form['code'] in urls.keys():
-            flash('That short name has already been taken. Please select another name.')
+            flash('''That short name has already been taken. 
+                    Please select another name.''')
             return redirect(url_for('home'))
 
         if 'url' in request.form.keys():
@@ -28,7 +38,8 @@ def your_url():
         else:
             f = request.files['file']
             full_name = request.form['code'] + secure_filename(f.filename)
-            f.save('/Users/nickwalter/Desktop/url-shortener/static/files/' + full_name)
+            f.save('/Users/allen/OneDrive/Desktop/Github/Learning/Python/Flask/2/static/files' 
+                    + full_name)
             urls[request.form['code']] = {'file':full_name}
 
 
@@ -36,8 +47,6 @@ def your_url():
             json.dump(urls, url_file)
             session[request.form['code']] = True
         return render_template('your_url.html', code=request.form['code'])
-    else:
-        return redirect(url_for('home'))
 
 @app.route('/<string:code>')
 def redirect_to_url(code):
@@ -48,7 +57,8 @@ def redirect_to_url(code):
                 if 'url' in urls[code].keys():
                     return redirect(urls[code]['url'])
                 else:
-                    return redirect(url_for('static', filename='files/' + urls[code]['file']))
+                    return redirect(url_for('static', 
+                    filename='files/'+ urls[code]['file']))
     return abort(404)
 
 @app.errorhandler(404)
