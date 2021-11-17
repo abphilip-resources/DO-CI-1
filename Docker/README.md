@@ -12,11 +12,12 @@
     docker container run -it <image_name>           --> run container from image
     >  run -v "%cd%":/<dir> <image_name> bash       --> run container with data volume
     >  run -p 8888:8888 <image_name>                --> run container with port
-    docker container exec -it <container_id>        --> run container with interactive shell
+    docker container exec -it <container_id>        --> run container with shell
+    docker container start <container_id>           --> start container
     docker container stop <container_id>            --> stop container
     docker container kill <container_id>            --> stop container immediately
-    docker container start <container_id>           --> start container
     docker container rm <container_id>              --> remove container
+    docker commit <container_name> <image_name>     --> save container as new image
 
 ### Compose
     docker-compose build                            --> build all images
