@@ -5,6 +5,8 @@
     docker image ls -a                              --> list all images    
     docker build -t <new_image_name> <path>         --> build image from dockerfile
     docker image rm <image_name>                    --> remove image
+    docker save -o <file_name> <image_name>         --> save image output to file
+    docker load -i <file_name>                      --> load image from file as input
 
 ### Container 
     docker container ls                             --> list all running containers
