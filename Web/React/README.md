@@ -1,1 +1,3 @@
-### `npx create-react-app <name> --use-npm`
+### `npx create-react-app <name> --use-npm` 
+
+### `serve -s build`
