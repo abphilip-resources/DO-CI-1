@@ -1,10 +1,10 @@
-# Author: sunny.c17hawke@gmail.com
+# Author: Sunny Bhaveen Chandra
+# Contact: sunny.c17hawke@gmail.com
 
 import json
 import os
 
 def create_baseFile():
-	'''This creates a base file in which we merge all the files'''
 	baseData = '''{
 	"cells": [{"cell_type": "markdown", "metadata": {},
 	"source": ["# *Merged Jupyter Notebook*"]}],
@@ -44,7 +44,6 @@ def mergeAllJupyterFile(file=None):
     base_file = read_file_as_json('baseFile.ipynb')
     next_files = read_file_as_json(file)
 
-    '''Create a header with each file to make a clear boundry among files'''
     FileBoundry =   {
    "cell_type": "markdown",
    "metadata": {},
@@ -62,11 +61,9 @@ def mergeAllJupyterFile(file=None):
             f.write(json.dumps(base_file))
         
 def create_base_for_results():
-    '''This moves the merged file to log folder created for it'''
     root_logDir = os.path.join(os.curdir, "results_folder")
 
     def move_file_sub_log_dir():
-        '''This moves the baseFile to sub log directory'''
         import time
         run_id = time.strftime("mergedFile_%Y_%m_%d-%H_%M_%S")
         
@@ -83,14 +80,12 @@ the following location ##\n{move_to_path}")
     move_file_sub_log_dir()
 
 class CleanExit(Exception):
-    '''Protects program from stopping abruptly'''
     def __init__(self):
         print("\n## No jupyter notebooks found to merge ##")
         print("\nexiting program....")
 
 
 def safelyExit():
-    '''safely exit when target notebooks are not present'''
     import sys
     try:
         sys.exit()
