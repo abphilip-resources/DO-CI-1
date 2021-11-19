@@ -1,25 +1,27 @@
-version: 2.1
+# https://app.circleci.com/pipelines/github/allenalvin333/Learning/7/workflows/2a90b0b6-4969-41d3-b37e-fc0f7d88462b
+
+version: 2.1                                      # CircleCI version
 
 jobs:
-  Build:
-    working_directory: ~/circleci-python
+  Build:                                          # Job name
+    working_directory: ~/circleci-python          # Working directory
     docker:
-      - image: "circleci/python:3.6.4"
-    steps:
-      - checkout
-      - run: python3 CI_CD/circleci/main.py
-  Test:
-    working_directory: ~/circleci-python
+      - image: "circleci/python:3.6.4"            # Docker image to be used
+    steps:                                        # Steps to be executed
+      - checkout                                  # Checkout the repository
+      - run: python3 CI_CD/circleci/main.py       # Execute the main.py file
+  Test:                                           # Job name
+    working_directory: ~/circleci-python          # Working directory
     docker:
-      - image: "circleci/python:3.6.4"
-    steps:
-      - checkout
-      - run: python3 CI_CD/circleci/test.py
+      - image: "circleci/python:3.6.4"            # Docker image to be used
+    steps:                                        # Steps to be executed
+      - checkout                                  # Checkout the repository
+      - run: python3 CI_CD/circleci/test.py       # Execute the test.py file
 
-workflows:
-  Learn 8:
+workflows:                                        # Workflows to be executed
+  Learn 8:                                        # Workflow name
     jobs:
-      - Build:
-          requires: []
-      - Test:
-          requires: [Build]
+      - Build:                                    # Job name
+          requires: []                            # Dependencies
+      - Test:                                     # Job name
+          requires: [Build]                       # Dependencies          
