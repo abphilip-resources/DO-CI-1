@@ -19,7 +19,7 @@ jobs:
 workflows:
   Learn 8:
     jobs:
-      - A:
+      - Build:
           requires: []
-      - B:
-          requires: [A]
+      - Test:
+          requires: [Build]
