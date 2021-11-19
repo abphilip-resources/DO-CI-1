@@ -1,16 +1,14 @@
 version: 2.1
 
 jobs:
-  A:
-    name: Build
+  Build:
     working_directory: ~/circleci-python
     docker:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
       - run: python3 CI_CD/circleci/main.py
-  B:
-    name: Test
+  Test:
     working_directory: ~/circleci-python
     docker:
       - image: "circleci/python:3.6.4"
@@ -21,6 +19,7 @@ jobs:
 workflows:
   Learn 8:
     jobs:
-      - A
+      - A:
+          requires: []
       - B:
           requires: [A]
