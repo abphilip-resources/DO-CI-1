@@ -6,3 +6,4 @@
 - Python - Flask
 - Python - Scikit
 - Python - Automation - Excel
+- CI_CD - Azure
