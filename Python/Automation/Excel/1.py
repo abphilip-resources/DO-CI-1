@@ -1,7 +1,7 @@
 import pandas as pd
 from openpyxl.workbook import Workbook
 loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
-      'Python/Automation/Excel/data/read'                         # Location of the directory
+      'Python/Automation/Excel/data/1'                            # Location of the directory
 
 print(pd.read_excel(f'{loc}/ReadExcel.xlsx'),'\n\n')              # Print the excel file
 print(pd.read_csv(f'{loc}/ReadText.txt', delimiter='\t'))         # Print the text file
