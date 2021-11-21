@@ -1,6 +1,6 @@
 import pandas as pd
-from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
+from openpyxl.workbook import Workbook
 loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
       'Python/Automation/Excel/data/2'                          # Location of the directory
 wb1 = Workbook()                                                # Create workbook
