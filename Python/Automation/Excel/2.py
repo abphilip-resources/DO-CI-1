@@ -26,6 +26,6 @@ print(ws3[1:5],'\n\n')                                          # 2D tuple from 
 
 for z in ws3.iter_rows(
     min_row=1, max_row=2,
-    max_col=4, values_only=True
-):
-    for y in z: print(y)
+    max_col=4, values_only=True                                 # False would return objects
+):                                                              
+    for y in z: print(y)                                        # Values of A1:D2
