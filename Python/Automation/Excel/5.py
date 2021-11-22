@@ -15,19 +15,20 @@ df.to_excel(f'{loc}/D_Write.xlsx')                                # Write the da
 # Modify Workbooks
 wb = load_workbook(f'{loc}/D_Write.xlsx')                         # Load the file
 ws = wb.active                                                    # Get the active sheet
-col = ws['H1']                                                    # Get the column
-col.font = Font(bold=True)                                        # Set the font to bold
-col.value = 'Total'                                               # Set the value
+ws['H1'].font = Font(bold=True)                                   # Set the font to bold
+ws['H1'].value = 'Total'                                          # Set the value
 
+# New Column using Workbook
 for z in range(2,300):                                            # Loop through the rows
       f = ws['F'+str(z)].value                                    # Value of cell in E column
       g = ws['G'+str(z)].value                                    # Value of cell in F column
-      ws['H'+str(z)].value = g + f                                # Save the calculated value
+      ws['H'+str(z)].value = f + g                                # Save the calculated value
 
+# New Column using Dataframe
+df['Total'] = df['Cost per'] + df['Units Sold']                   # Calculate the total
 rows = dataframe_to_rows(df, index=False, header=True)            # Convert the dataframe to rows
-for z in rows: print(z)                                           # Print the rows
-for z,r1 in enumerate(rows,1):                                      # Loop through the rows
-      for y,r2 in rows:                                             # Loop through the columns
-            if r1[0] == r2[0]:                                    # If the first column is the same
+for z,a in enumerate(rows,1): 
+      for y,b in enumerate(a,2):                                   
+            ws.cell(row=z, column=y).value = b                    # Save the calculated value
 
 wb.save(f'{loc}/D_Write.xlsx')                                    # Save the file
