@@ -35,33 +35,31 @@ cell.fill = GradientFill(
 # Highlight Style 1
 h1 = NamedStyle(name='highlight1')                              # Create a style
 h1.font = Font(bold=True)                                       # Set font
-bd1 = Side(style='thick', color='FFFF00')                       # Set border
+bd1 = Side(style='thin', color='FFFF00')                        # Set border
 h1.fill = PatternFill('solid', fgColor='FFFF00')                # Set fill
 h1.border = Border(
-    left=bd1, top=bd1, 
-    right=bd1, bottom=bd1
+    left=bd1, top=bd1, right=bd1, bottom=bd1
 )                                                               # Apply border
 
 # Highlight Style 2
 h2 = NamedStyle(name='highlight2')                              # Create a style
-h2.font = Font(italic=True)                                     # Set font
-bd2 = Side(style='thin', color='000000')                        # Set border
+h2.font = Font(underline='single')                              # Set font
+bd2 = Side(style='thick', color='FFFF00')                       # Set border
 h2.fill = GradientFill(
-    stop=('83EAF1', '63A4FF'), type='linear'
+    stop=('63A4FF', '83EAF1'), type='linear'
 )                                                               # Set fill
 h2.border = Border(
-    left=bd2, top=bd2, 
-    right=bd2, bottom=bd2
+    left=bd2, top=bd2, right=bd2, bottom=bd2
 )                                                               # Apply border
 
 # Apply highlights
 z = 0 
 for col in ws.iter_cols(
-    min_row=1, min_col=7, 
-    max_col=9, max_row=10
-):
-    col[z+1].style = h1
-    col[z+2].style = h2
-    z+=1
+    min_row=2, min_col=7, 
+    max_row=8, max_col=10
+):                                                              # Iterate through columns
+    col[z+1].style = h1                                         # Apply highlight1
+    col[z+2].style = h2                                         # Apply highlight2
+    z=0
 
 wb.save(f'{loc}/B_Write.xlsx')                                  # Save workbook
