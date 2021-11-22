@@ -7,7 +7,7 @@ from openpyxl.styles import GradientFill, colors, NamedStyle
 loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
       'Python/Automation/Excel/data/2'                          # Location of the directory
 wb = Workbook()                                                 # Create workbook
-ws = wb.active                                                  # Go to active sheet of 
+ws = wb.active                                                  # Go to active sheet of wb
 
 for z in range(1,20): ws.append(range(300))                     # Add data to sheet
 

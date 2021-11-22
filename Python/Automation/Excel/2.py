@@ -21,7 +21,7 @@ print(wb1.sheetnames)                                           # Print all shee
 # Modify
 c2 = ws2['A1']                                                  # Select A1 of active sheet
 print(c2.value)                                                 # Prints cell value
-ws2['A1'] = 0                                                   # Modify cell value
+ws2['A1'] = 'Direction'                                         # Modify cell value
 wb2.save(f'{loc}/A_Write.xlsx')                                 # Save in new file
 
 # Display
