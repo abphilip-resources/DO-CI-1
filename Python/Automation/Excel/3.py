@@ -11,8 +11,8 @@ ws = wb.active                                                  # Go to active s
 
 for z in range(1,20): ws.append(range(300))
 
-ws.merge_cells('A1:B5')                                         # Merge cells A1:B5
-ws.unmerge_cells('A1:B5')                                       # Unmerge cells A1:B5
+ws.merge_cells('B2:E5')                                         # Merge cells B2:E5
+ws.unmerge_cells('B2:E5')                                       # Unmerge cells B2:E5
 ws.merge_cells(
     start_row=2, start_column=2, 
     end_row=5, end_column=5
@@ -30,10 +30,4 @@ cell.alignment = Alignment(
 cell.fill = GradientFill(
     stop=('009FFD', '2A2A72'), type='linear'
 )                                                               # Set gradient fill
-cell.border = Border(
-    left=Side(border_style='thin', color='FF000000'),
-    right=Side(border_style='thin', color='FF000000'),
-    top=Side(border_style='thin', color='FF000000'),
-    bottom=Side(border_style='thin', color='FF000000')
-)                                                               # Set border
 wb.save(f'{loc}/B_Write.xlsx')                                  # Save workbook
