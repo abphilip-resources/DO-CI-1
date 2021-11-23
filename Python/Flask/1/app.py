@@ -33,7 +33,7 @@ def create():
 def delete():
     return jsonify({'message':'Alert deleted successfully'})                # Return the json code
 
-countries = [                                                               # List of countries
+countries = [                                                               # List of countries as data
     {"id": 1, "name": "Thailand", "capital": "Bangkok", "area": 513120},
     {"id": 2, "name": "India", "capital": "Delhi", "area": 3287259},
     {"id": 3, "name": "Egypt", "capital": "Cairo", "area": 1010408}    
@@ -42,27 +42,29 @@ countries = [                                                               # Li
 def find_next_id():
     return max(country["id"] for country in countries) + 1                  # Return the next ID
 
-@app.get("/countries")                                                      # For GET to countries data
+@app.get("/countries")                                                      # To GET the countries data
 def get_countries():
     return jsonify(countries)                                               # Return the data as JSON
 
-@app.post("/countries")                                                     # For POST to countries data
+@app.post("/countries")                                                     # To POST to countries data
 def add_country():
-    if request.is_json:                                                     # Check if the request is JSON
+    if request.is_json:                                                     # Check if the request data is JSON
         country = request.get_json()                                        # Parse JSON data
-        country["id"] = find_next_id()                                      # Add the ID
+        country["id"] = find_next_id()                                      # Assign ID to new data
         countries.append(country)                                           # Append the data to the list   
         return country, 201                                                 # Return success code
     return {"error": "Request must be JSON"}, 415                           # Return the error message if not JSON
 
-'''
+'''-----------------------------------------------------------------
+    
     To add new data, send a POST request to the endpoint
 
     curl -i http://127.0.0.1:5000/countries \
     -X POST \
     -H 'Content-Type: application/json' \
     -d '{"name":"Germany", "capital": "Berlin", "area": 357022}'
-'''
 
-if __name__ == "__main__":
-    app.run(debug=True)
+-----------------------------------------------------------------'''
+
+if __name__ == "__main__":  
+    app.run(debug=True)                                                     # Run the app in debug mode
