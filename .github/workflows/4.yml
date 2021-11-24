@@ -1,0 +1,58 @@
+name: Learn 4
+
+on: [push]
+
+env:
+  FILE_NAME: CI_CD/hello
+
+jobs:
+  A:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+
+    - name: Build for Linux
+      run: go build ${{ env.FILE_NAME }}.go
+    - name: Build for Windows
+      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
+      
+    - name: Upload Linux Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: linux
+        path: ./hello
+    - name: Upload Windows Artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: windows
+        path: ./hello.exe
+
+  B:
+    name: Linux
+    runs-on: ubuntu-latest
+    needs: [A]
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+    - name: Download Artifact
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: linux
+    - name: Test 
+      run: source ./CI_CD/test.sh
+
+  C:
+    name: Windows
+    runs-on: windows-latest
+    needs: [A]
+    steps:
+    - name: Checkout 
+      uses: actions/checkout@v1
+    - name: Download Artifact
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: windows
+    - name: Test 
+      run: windows/hello.exe
