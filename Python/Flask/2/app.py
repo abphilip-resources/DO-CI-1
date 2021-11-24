@@ -38,7 +38,7 @@ def user():
         else:                                                                   # If file
             f = request.files['file']                                           # Get file from form
             n = request.form['code'] + secure_filename(f.filename)              # Check if secure file and name it
-            f.save(loc + 'static/files' + n)                                    # Save file to static/files
+            f.save(loc + 'static/files/' + n)                                   # Save file to static/files
             urls[request.form['code']] = {'file':n}                             # Add file name to dictionary
 
         with open('urls.json','w') as url_file:                                 # Open file
