@@ -19,7 +19,7 @@ loc = '/Users/allen/OneDrive/Desktop/Github/Learning/Python/Flask/2/'           
 def home():
     return render_template('home.html', codes=session.keys())                   # Display home.html
 
-@app.route('/user', methods=['GET','POST'])                                 # GET & POST methods accepted
+@app.route('/user', methods=['GET','POST'])                                     # GET & POST methods accepted
 def user():
     if(request.method=='GET'): return redirect(url_for('home'))                 # If GET, redirect to home page
     else:
@@ -37,27 +37,27 @@ def user():
             urls[request.form['code']] = {'url':request.form['url']}            # Add URL to dictionary
         else:                                                                   # If file
             f = request.files['file']                                           # Get file from form
-            n = request.form['code'] + secure_filename(f.filename)              # Name of file and check if secure file
+            n = request.form['code'] + secure_filename(f.filename)              # Check if secure file and name it
             f.save(loc + 'static/files' + n)                                    # Save file to static/files
             urls[request.form['code']] = {'file':n}                             # Add file name to dictionary
 
-        with open('urls.json','w') as url_file:
-            json.dump(urls, url_file)
-            session[request.form['code']] = True
-        return render_template('user.html', code=request.form['code'])
+        with open('urls.json','w') as url_file:                                 # Open file
+            json.dump(urls, url_file)                                           # Dump dictionary into file
+            session[request.form['code']] = True                                
+        return render_template('user.html', code=request.form['code'])          # Display user.html for success
 
-@app.route('/<string:code>')
-def redirect_to_url(code):
-    if os.path.exists('urls.json'):
-        with open('urls.json') as urls_file:
-            urls = json.load(urls_file)
-            if code in urls.keys():
-                if 'url' in urls[code].keys():
-                    return redirect(urls[code]['url'])
-                else:
-                    return redirect(url_for('static', 
-                    filename='files/'+ urls[code]['file']))
-    return abort(404)                                                           # Throw 404 if not found
+@app.route('/<string:code>')                                                    # The shortened URL code
+def redirect_to_url(code):                              
+    if os.path.exists('urls.json'):                                             # If JSON file exists   
+        with open('urls.json') as urls_file:                                    # Open file
+            urls = json.load(urls_file)                                         # Load file into dictionary
+            if code in urls.keys():                                             # Iterate through dictionary
+                if 'url' in urls[code].keys():                                  # If URL  
+                    return redirect(urls[code]['url'])                          # Redirect to URL
+                else:                                                           # If file
+                    return redirect(url_for('static',                   
+                    filename='files/'+ urls[code]['file']))                     # Redirect to file
+    return abort(404)                                                           # Throw 404 if not found in dictionary
 
 @app.errorhandler(404)                                                          # 404 Error Page
 def page_not_found(error):
