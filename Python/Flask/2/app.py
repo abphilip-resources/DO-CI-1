@@ -61,10 +61,10 @@ def redirect_to_url(code):
                     filename='files/'+ urls[code]['file']))
     return abort(404)
 
-@app.errorhandler(404)
+@app.errorhandler(404)                                                          # 404 Error Page
 def page_not_found(error):
-    return render_template('404.html'), 404
+    return render_template('404.html'), 404                                     # Render 404.html
 
-@app.route('/api')
+@app.route('/api')                                                              # API Page
 def session_api():
-    return jsonify(list(session.keys()))
+    return jsonify(list(session.keys()))                                        # Return JSON of session keys
