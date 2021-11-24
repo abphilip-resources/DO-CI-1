@@ -19,7 +19,7 @@ jobs:                                                           # Jobs
       run: pip install --quiet --requirement CI_CD/gcp/requirements.txt
 
     - name: Lint Code                                           # Name of the step
-      run: flake8 --ignore=E501,E231 CI_CD/gcp/*.py             # Specified action to lint code
+      run: flake8 --ignore=E501,E231,W292 CI_CD/gcp/*.py        # Specified action to lint code
     - name: Unit Tests                                          # Name of the step
       run: python -m unittest --verbose --failfast              # Specified action to Run unit tests
 
