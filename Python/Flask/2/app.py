@@ -56,7 +56,7 @@ def redirect_to_url(code):
                     return redirect(urls[code]['url'])                          # Redirect to URL
                 else:                                                           # If file
                     return redirect(url_for('static',                   
-                    filename='files/'+ urls[code]['file']))                     # Redirect to file
+                    filename='files/' + urls[code]['file']))                     # Redirect to file
     return abort(404)                                                           # Throw 404 if not found in dictionary
 
 @app.errorhandler(404)                                                          # 404 Error Page
