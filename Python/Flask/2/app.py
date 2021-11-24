@@ -19,33 +19,32 @@ loc = '/Users/allen/OneDrive/Desktop/Github/Learning/Python/Flask/2/'           
 def home():
     return render_template('home.html', codes=session.keys())                   # Display home.html
 
-@app.route('/your-url', methods=['GET','POST'])                                 # GET & POST methods accepted
-def your_url():
+@app.route('/user', methods=['GET','POST'])                                 # GET & POST methods accepted
+def user():
     if(request.method=='GET'): return redirect(url_for('home'))                 # If GET, redirect to home page
     else:
         urls = {}                                                               # Dictionary to store URLs          
-        if os.path.exists('urls.json'):                                         # If file exists
+        if os.path.exists('urls.json'):                                         # If JSON file exists
             with open('urls.json') as urls_file:                                # Open file
                 urls = json.load(urls_file)                                     # Load file into dictionary
 
-        if request.form['code'] in urls.keys():                                 # If code already exists
+        if request.form['code'] in urls.keys():                                 # If name already exists
             flash('''That short name has already been taken. 
-                    Please select another name.''')
+                    Please select another name.''')                             # Flash Alert
             return redirect(url_for('home'))                                    # Redirect to home page
 
-        if 'url' in request.form.keys():
-            urls[request.form['code']] = {'url':request.form['url']}
-        else:
-            f = request.files['file']
-            n = request.form['code'] + secure_filename(f.filename)
-            f.save(loc + 'static/files' + n)
-            urls[request.form['code']] = {'file':n}
-
+        if 'url' in request.form.keys():                                        # If URL
+            urls[request.form['code']] = {'url':request.form['url']}            # Add URL to dictionary
+        else:                                                                   # If file
+            f = request.files['file']                                           # Get file from form
+            n = request.form['code'] + secure_filename(f.filename)              # Name of file and check if secure file
+            f.save(loc + 'static/files' + n)                                    # Save file to static/files
+            urls[request.form['code']] = {'file':n}                             # Add file name to dictionary
 
         with open('urls.json','w') as url_file:
             json.dump(urls, url_file)
             session[request.form['code']] = True
-        return render_template('your_url.html', code=request.form['code'])
+        return render_template('user.html', code=request.form['code'])
 
 @app.route('/<string:code>')
 def redirect_to_url(code):
