@@ -1,8 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
-CMD tail -f /dev/null
-
-RUN apt-get update -y && apt-get install -y python3-pip python-dev
+RUN apt-get install -y python3-pip python-dev
 
 EXPOSE 80
 EXPOSE 5000
