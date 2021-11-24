@@ -19,7 +19,7 @@ jobs:
       run: pip install --quiet --requirement CI_CD/gcp/requirements.txt
 
     - name: Lint Code
-      run: flake8 --ignore=E501,E231 CI_CD/gcp/*.py
+      run: flake8 --ignore=E501,E231,W292 CI_CD/gcp/*.py
     - name: Unit Tests
       run: python -m unittest --verbose --failfast     
 
