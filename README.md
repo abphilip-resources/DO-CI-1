@@ -2,7 +2,6 @@
 
 ### Pending:
 - Web - React
-- Docker - CD
-- Docker - Dev 3&4
+- Docker - Dev 
 - Python - Scikit
 - CI_CD - Azure
