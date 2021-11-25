@@ -2,8 +2,8 @@ import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font
 from openpyxl.utils.dataframe import dataframe_to_rows
-loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
-      'Python/Automation/Excel/data/3'                            # Location of the directory
+loc = 'C:/Users/allen/OneDrive/Desktop/Github/' \
+      'Learning/Python/Excel/data/3'                              # Location of the directory
 
 # Merge Dataframes
 df1 = pd.read_excel(f'{loc}/A_Read.xlsx', sheet_name='Sheet1')    # Read the first file sheet 1

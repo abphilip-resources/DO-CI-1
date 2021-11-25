@@ -6,8 +6,8 @@ from openpyxl.chart import PieChart, PieChart3D
 from openpyxl.chart import Reference, Series, BarChart
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from openpyxl.drawing.image import Image
-loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
-      'Python/Automation/Excel/data/2'                          # Location of the directory
+loc = 'C:/Users/allen/OneDrive/Desktop/Github/' \
+      'Learning/Python/Excel/data/2'                            # Location of the directory
 wb = Workbook()                                                 # Create workbook
 ws = wb.active                                                  # Go to active sheet of wb
 

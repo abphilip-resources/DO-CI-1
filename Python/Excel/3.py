@@ -4,8 +4,8 @@ from openpyxl.workbook import Workbook
 from openpyxl.styles import Font, Alignment, Border 
 from openpyxl.styles import Side, PatternFill, Color
 from openpyxl.styles import GradientFill, colors, NamedStyle
-loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
-      'Python/Automation/Excel/data/2'                          # Location of the directory
+loc = 'C:/Users/allen/OneDrive/Desktop/Github/' \
+      'Learning/Python/Excel/data/2'                            # Location of the directory
 wb = Workbook()                                                 # Create workbook
 ws = wb.active                                                  # Go to active sheet of wb
 

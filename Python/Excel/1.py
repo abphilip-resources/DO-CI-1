@@ -1,7 +1,7 @@
 import pandas as pd
 from openpyxl.workbook import Workbook
-loc = 'C:/Users/allen/OneDrive/Desktop/Github/Learning/' \
-      'Python/Automation/Excel/data/1'                            # Location of the directory
+loc = 'C:/Users/allen/OneDrive/Desktop/Github/' \
+      'Learning/Python/Excel/data/1'                              # Location of the directory
 
 # Converting to Pandas Dataframe
 print(pd.read_excel(f'{loc}/ReadExcel.xlsx'),'\n\n')              # Print the excel file
