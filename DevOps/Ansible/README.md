@@ -2,7 +2,7 @@
 
 ### Local 
     ansible localhost -m ping                                   --> Pings the localhost
-    ansible localhost -m find -a "paths=<dir> file_type=<x>"    --> Finds all directories in Github
+    ansible localhost -m find -a "paths=<dir> file_type=<x>"    --> Finds all type 'x' files in directory
 
 ### Group
     ansible <group> -m -ping                                    --> Pings all hosts in the group
