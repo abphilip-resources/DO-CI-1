@@ -10,7 +10,7 @@ jobs:                                           # Jobs
     - name: Checkout                            # Name of the step
       uses: actions/checkout@v1                 # Specified action Checkout Code
     - name: Run Python                          # Name of the step
-      run: python CI_CD/date.py                 # Specified action Run Python Script
+      run: python DevOps/CI/date.py             # Specified action Run Python Script
 
   B:
     name: Build                                 # Name of the job

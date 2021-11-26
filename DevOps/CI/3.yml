@@ -19,9 +19,9 @@ jobs:                                                           # Jobs
     - name: My Repository                                       # Name of the step
       uses: actions/checkout@v2                                 # Specified action Checkout Code
       with:
-        repository: allenalvin333/Learning                  # Repository
+        repository: allenalvin333/Learning                      # Repository
         ref: master                                             # Branch           
-        path: ./CI_CD                                           # Path
+        path: ./DevOps/CI                                       # Path
 
     - name: Source Repository                                   # Name of the step
       uses: actions/checkout@v2                                 # Specified action Checkout Code

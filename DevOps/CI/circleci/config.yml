@@ -9,14 +9,14 @@ jobs:
       - image: "circleci/python:3.6.4"            # Docker image to be used
     steps:                                        # Steps to be executed
       - checkout                                  # Checkout the repository
-      - run: python3 CI_CD/circleci/main.py       # Execute the main.py file
+      - run: python3 DevOps/CI/circleci/main.py   # Execute the main.py file
   Test:                                           # Job name
     working_directory: ~/circleci-python          # Working directory
     docker:
       - image: "circleci/python:3.6.4"            # Docker image to be used
     steps:                                        # Steps to be executed
       - checkout                                  # Checkout the repository
-      - run: python3 CI_CD/circleci/test.py       # Execute the test.py file
+      - run: python3 DevOps/CI/circleci/test.py   # Execute the test.py file
 
 workflows:                                        # Workflows to be executed
   Learn 0:                                        # Workflow name
