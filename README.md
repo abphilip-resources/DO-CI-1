@@ -1,7 +1,8 @@
 # Self Learning
 
 ### Pending:
-- CI_CD - Azure
-- Docker - Dev 
-- Python - Scikit
-- Web - React
+- [] App: `React`
+- [] DevOps: `Docker/Dev`
+- [] DevOps: `CI/Azure`
+- [] Python: `Scikit`
+- [] Web: `React`
