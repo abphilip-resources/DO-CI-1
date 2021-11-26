@@ -1,7 +1,7 @@
 # Self Learning
 
 ### Pending:
-- Web - React
+- CI_CD - Azure
 - Docker - Dev 
 - Python - Scikit
-- CI_CD - Azure
+- Web - React
