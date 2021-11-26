@@ -1,0 +1,10 @@
+---                                         # YAML document with Ansible Syntax
+  - name: "Learn2"                          # Ansible task name
+    hosts: localhost                        # Hosts to run the task on
+    tasks:
+      - name: "Ping"                        # Ansible task name
+        ping:                               # Ansible task to ping server
+      - name: "Find"                        # Ansible task name
+        find:                               # Ansible task to find files
+          path: ~/Github/DevOps/Ansible     # Path to search
+          file_type: file                   # Type of file to find
