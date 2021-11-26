@@ -6,5 +6,5 @@
         ping:                               # Ansible task to ping server
       - name: "Find"                        # Ansible task name
         find:                               # Ansible task to find files
-          path: ~/Github/DevOps/Ansible     # Path to search
+          path: /DevOps/Ansible             # Path to find files
           file_type: file                   # Type of file to find
