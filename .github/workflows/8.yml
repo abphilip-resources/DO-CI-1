@@ -9,8 +9,7 @@ env:
   appName: allenapp1
 
 jobs:
-  A:
-    name: Authentication
+  Build:
     runs-on: ubuntu-latest
     steps:
     - name: Azure Authentication
@@ -25,30 +24,16 @@ jobs:
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }} 
 
-  B:
-    name: Service
-    needs: [A]
-    runs-on: ubuntu-latest
-    steps:
     - name: Create App Service
       uses: Azure/cli@v1.0.0
       with:
         inlineScript: az appservice plan create -g ${{ env.resourceGroup }} -n allenplan1 --is-linux
 
-  C:
-    name: Build
-    needs: [B]
-    runs-on: ubuntu-latest
-    steps:
     - name: Create WebApp
       uses: Azure/cli@v1.0.0
       with:
         inlineScript: az webapp create -g ${{ env.resourceGroup }} -p allenplan1 -n ${{ env.appName }} -i ${{ env.container_registry_name }}
-  D:
-    name: Deploy
-    needs: [C]
-    runs-on: ubuntu-latest
-    steps:
+
     - name: Deploy WebApp
       uses: Azure/webapps-deploy@v2
       with:
