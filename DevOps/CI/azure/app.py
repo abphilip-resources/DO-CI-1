@@ -2,9 +2,7 @@ from flask import Flask, jsonify
 from flask import render_template
 from AzureCLI import *
 
-
 azureAPI = Flask(__name__)
-
 
 @azureAPI.route('/')
 def home():
@@ -21,7 +19,6 @@ def home():
 @azureAPI.route('/listvms', methods=['GET'])
 def listvms():
     return jsonify(AzureCLI.listVMs())
-
 
 # if you want to run the API locally:
 #azureAPI.run(host='127.0.0.1', port=5000)

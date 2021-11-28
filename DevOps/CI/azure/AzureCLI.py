@@ -5,7 +5,6 @@ import json
 
 
 class AzureCLI:
-
     def listVMs():
         try:
             VM = get_client_from_cli_profile(Compute.ComputeManagementClient)
