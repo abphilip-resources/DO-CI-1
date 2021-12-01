@@ -1,6 +1,0 @@
-[servers]
-s1 ansible-host=127.0.0.1 ansible-connection=local deprecation_warnings=false
-s2 ansible-host=127.0.0.2 ansible-connection=local INTERPRETER_PYTHON=auto_silent
-s3 ansible-host=127.0.0.3 ansible-connection=local
-s4 ansible-host=127.0.0.4 ansible-connection=local
-s5 ansible-host=127.0.0.5 ansible-connection=local
