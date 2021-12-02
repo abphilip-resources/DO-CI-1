@@ -1,4 +1,4 @@
-### Azure Container Registry
+# Azure Container Registry
 
     az login                                                                --> Login to Azure
     az group create -l <location> -n <rg_name>
