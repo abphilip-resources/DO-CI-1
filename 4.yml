@@ -3,7 +3,7 @@ name: Learn 4                                                             # Name
 on: [push]                                                                # Trigger event
 
 env:
-  FILE_NAME: DevOps/CI/hello                                              # File name
+  FILE_NAME: hello                                                        # File name
 
 jobs:                                                                     # Jobs
   A:
@@ -41,7 +41,7 @@ jobs:                                                                     # Jobs
       with:
         name: linux                                                       # Artifact name
     - name: Test                                                          # Name of the step
-      run: source ./DevOps/CI/test.sh                                     # Specified command
+      run: source test.sh                                                 # Specified command
 
   C:
     name: Windows                                                         # Name of the job

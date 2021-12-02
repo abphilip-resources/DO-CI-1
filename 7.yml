@@ -16,10 +16,10 @@ jobs:                                                           # Jobs
     - name: Setup Python                                        # Name of the step    
       uses: actions/setup-python@v2                             # Specified action Setup Python
     - name: Install Requirements                                # Specified action to install dependencies
-      run: pip install --quiet --requirement DevOps/CI/gcp/requirements.txt
+      run: pip install --quiet --requirement gcp/requirements.txt
 
     - name: Lint Code                                           # Name of the step
-      run: flake8 --ignore=E501,E231,W292 DevOps/CI/gcp/*.py    # Specified action to lint code
+      run: flake8 --ignore=E501,E231,W292 gcp/*.py              # Specified action to lint code
     - name: Unit Tests                                          # Name of the step
       run: python -m unittest --verbose --failfast              # Specified action to Run unit tests
 
@@ -45,7 +45,7 @@ jobs:                                                           # Jobs
         gcloud info 
     
     - name: Build Image                                         # Build Image from Dockerfile
-      run: docker build -t "gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" ./DevOps/CI/gcp
+      run: docker build -t "gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest" ./gcp
     - name: GCP Image Registry                                  # Push Image to GCP Image Registry
       run: docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/${{ env.APPLICATION_NAME }}:latest
 
